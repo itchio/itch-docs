@@ -64,13 +64,11 @@ However, as of version 25.x of the application, they're gold tier, because 7-zip
 
 ### .tar, .tar.gz, .tar.bz2 archives \(Gold tier\)
 
-TAR is a funny beast. It was designed for backing data on tapes, so it's a linear format. It doesn't specify compression, so the entire stream is compressed with something else.
+TAR is a funny beast[^9]. It was designed for backing data on tapes, so it's a linear format. It doesn't specify compression, so the entire stream is compressed with something else.
 
 For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 \(bzip2, an odd format in itself[^8]\), the installation can be paused anywhere.
 
 ### tar.xz archives \(Silver tier\)
-
-[^10]: Enter footnote here.
 
 [^1]: Extractors on Linux & macOS tend to forget about file permissions \(notably, the executable bit\), but that's 100% on them.
 
@@ -88,3 +86,4 @@ For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 
 
 [^8]: Only mainstream format to use [Burrows-Wheeler](https://en.wikipedia.org/wiki/Burrows–Wheeler_transform), typically has low compression \_and \_decompression speeds? The world was weird before LZMA.
 
+[^9]: A quick note to .zip haters: TAR has also had [an eventful childhood](https://en.wikipedia.org/wiki/Tar_(computing)), and as a result, is just as messy. This is just another of those "ignorance is bliss" subjects, so maybe don't follow that link.
