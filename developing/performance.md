@@ -1,26 +1,26 @@
-
 # Diving into performance
 
 ## Chrome DevTools
 
 Chrome has many tools that let us know what we're doing.
 
-First off, don't check "Hide Violations". Violations are bad, let's not do them.
+First off, don't check **Hide Violations**. Violations are bad, let's not do them.
 
-They may happen when first-time-loading large datasets, that's okay - but in normal,
-we-have-almost-everything-cached state, they shouldn't happen.
+They may happen when first-time-loading large datasets, that's okay - but in normal, we-have-almost-everything-cached state, they shouldn't happen.
 
-Use the "Timelines" tab to see where time is spent. You can also Profile javascript,
-and capture the Heap or profile memory allocations. Get to know the tools. They're good.
+Use the **Performance** tab to see where time is spent, including React rendering:
+
+![](/assets/profile-react.png)
+
+Get to know the tools. They're good.
 
 ## React performance tips
 
 In short:
 
-  * Only use React.PureComponent, always
-  * For connected components, use reselect (createStructuredSelector, createSelector)
-  in `mapStateToProps` (grep the codebase for examples)
-  * Avoid `[]` or `{}` in `mapStateToProps`, do this instead:
+* Only use `React.PureComponent`, always
+* For connected components, use reselect \(createStructuredSelector, createSelector\) in `mapStateToProps` \(grep the codebase for examples\)
+* Avoid `[]` or `{}` in `mapStateToProps`, do this instead:
 
 ```javascript
 const emptyObj = {};
@@ -36,8 +36,7 @@ export default connect(SomeComponent, {
 })
 ```
 
-  * Anonymous functions or `this.something.bind(this)` create a new value every time,
-  and will wreck `shouldComponentUpdate`.
+* Anonymous functions or `this.something.bind(this)` create a new value every time, and will wreck `shouldComponentUpdate`.
 
 ```javascript
 export BadComponent extends React.PureComponent<any, any> {
@@ -68,3 +67,4 @@ export GoodComponent extends React.PureComponent<any, any> {
 ```
 
 More details in [this medium article](https://medium.com/@esamatti/react-js-pure-render-performance-anti-pattern-fb88c101332f)
+
