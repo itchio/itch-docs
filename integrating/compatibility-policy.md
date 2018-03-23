@@ -4,7 +4,7 @@ This guide describes the _ideal way_ to publish software on itch.io, ie. **Plati
 
 But it's cold out there in the real world, and on an open platform, life happens, and they stray from The Good Workflow. Nevertheless, the app tries its best to _get anything it can to run_, within certain rules.
 
-**TL;DR: if you **_**cannot**_** use butler, **_**just upload a .zip**_**.**
+**TL;DR: **if you _cannot_ use butler,** just upload a .zip. **\(But keep reading anyway, so you can see what you're missing\).
 
 ## Platinum tier
 
@@ -18,7 +18,16 @@ Builds pushed with [butler](https://itch.io/docs/butler) are **Platinum tier**, 
 * Upgrading an installation uses **binary patch files** which are small, beautiful, and efficient.[^3]
 * Uninstalls are near-instantaneous.
 
-Platinum tier is the, uh, gold standard we strive for, and all you have to do for it to work is simply to **use **[**butler**](https://itch.io/docs/butler)** to push your builds**.
+All you have to do for _all this_ to work is simply to **use **[**butler**](https://itch.io/docs/butler)** to push your builds**.
+
+### ...but I need an installer!
+
+That's what Big Installer wants you to think.
+
+But in reality:
+
+* itch.io app users get the [Platinum tier](#platinum-tier) experience
+* power users may download directly from the web, and that's okay! They can handle a .zip file.
 
 ## Gold tier
 
