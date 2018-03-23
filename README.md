@@ -1,25 +1,20 @@
+# The itch book
 
-# The itch app manual
-
-This book is a living documentation for the itch app. As all documentation, it
-will surely be flawed. However, our hope is that by making it honest, often-updated,
-and easy to contribute to, it will remain useful and relevant for years to come.
+This book is a living documentation for [the itch.io app](https://itch.io/app).
 
 Its intended audience includes:
 
-  * People who just want to play games with the app
-  * People who make games and would like to integrate them with the app
-  * People who would like to help improve the app itself
+* People using the app to install, manage and launch games and applications
+* Game and application developers publishing to itch.io
+* Contributors to the app \(it's open-source!\)
 
-## Contributing
+**This document describes the bleeding-edge version of the app.**  
+If you're looking for documentation on the latest stable release, you can read it at:
 
-If you find a typo, a factual inaccuracy, or an important caveat not covered in
-this book, feel free to submit a pull request directly on our GitHub repository:
+* [itch v23 docs](http://docs.itch.ovh/itch/v23.6.1/index.html)
 
-  * <https://github.com/itchio/itch> (the book lives in the `docs/` folder)
+## Contributing to this book
 
-*One could argue that a git repository is, in fact, not the best way to
-encourage people to contribute to your book. However, GitHub is easy to sign up
-for and provides file editing and PR submission functionality without leaving the
-browser, which seems like an adequate compromise between "low barrier to entry"
-and "high overhead for maintainers".*
+If you find a typo, a factual inaccuracy, or an important caveat not covered in  
+this book, feel free to submit a pull request to the [GitHub repository](https://github.com/itchio/itch-docs).
+
