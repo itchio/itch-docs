@@ -10,5 +10,9 @@ _That's why games aren't installed to _`Program Files`_ on Windows. As a rule, t
 
 To change the location games are installed to, add a new one by clicking the **Add location** button, then click on the hamburger menu and pick **Make default**.
 
+This menu also lets you remove an install location, or open it in a tab to see which games are installed:
+
+![](/assets/install-locations-contents.png)
+
 
 
