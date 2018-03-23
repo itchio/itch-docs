@@ -36,7 +36,7 @@
     * [XNA Framework](integrating/prereqs/xna.md)
     * [DirectX](integrating/prereqs/dx.md)
   * [API integration](integrating/api/README.md)
-  * Compatibility policy
+  * [Compatibility policy](integrating/compatibility-policy.md)
   * [Troubleshooting](integrating/troubleshooting-guide.md)
 * [Contributor guide](developing/README.md)
   * [How you can help](developing/help.md)
