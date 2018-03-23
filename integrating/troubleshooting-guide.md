@@ -20,5 +20,17 @@ The first is to **simplify your directory structure**. Your app might need other
 
 The second is to [**ship an app manifest**](/integrating/manifest.md) that explicitly lists what needs to be launched. A manifest also lets you specify **prerequisites** \(VC++, DirectX, XNA, OpenAL etc.\) that your game needs, so even if you have a single launch target, read the docs anyway.[^1]
 
+### The game / application crashes
+
+As of itch 25.x, any crash will show you a modal with very useful info. Collapsed, it looks like:
+
+![](/assets/universal-navigation.gif)
+
+Expanding **View details**
+
+### It says it's still running, but I closed the game / application!
+
+On Windows 8 and up, the itch app will wait for the entire process tree to quit. If it says it's still running, _something_ hasn't exited yet. You can use force close to kill it, but with great power comes great responsibility.
+
 [^1]: Speaking of, you're reading docs right now. Big up to you! We appreciate it a lot.
 
