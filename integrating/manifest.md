@@ -5,7 +5,8 @@ There are several good reasons to include an app manifest with your game:
 * You want to provide a choice between multiple launch targets
   * Examples: game, level editor, etc.
 * Your app needs access to [the itch.io API](https://itch.io/docs/api/overview), for authentication or more
-* The [built-in heuristics](./README.md) do not accurately identify the "main executable" to launch
+
+"It launches the wrong thing" is usually a bad reason to ship a manifest, see [Troubleshooting](/integrating/troubleshooting-guide.md).
 
 ## Basics
 
@@ -54,7 +55,7 @@ Read the [prerequisites documentation](./prereqs/README.md) to get started.
 
 ## Actions
 
-A valid manifest should contain one or more actions:
+Manifests can contain between zero and "a few" options[^1]
 
 ```toml
 [[actions]]
@@ -221,4 +222,6 @@ console = true
 On Windows, it'll also open a new command line window to display the game into.
 
 On other platforms, this attribute is not yet supported.
+
+[^1]: Keep it simple, you don't want players to have to scroll all the way down to pick the right action.
 
