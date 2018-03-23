@@ -1,68 +1,66 @@
-
 # Installing itch on Windows
 
-  * Download the latest version from <https://itch.io/app>
-  * Double-click the installer executable
-    * You should see a splash screen for a few seconds
-  * The app starts up, desktop & start menu shortcuts are created
+* Download the latest version from [https://itch.io/app](https://itch.io/app)
+* Double-click the installer executable
+  * You should see a splash screen for a few seconds
+* The app starts up, desktop & start menu shortcuts are created
 
-If you encounter any problems installing the app, try to find out if
-this page covers it, and if not, get in touch with [itch.io support](https://itch.io/support).
+If you encounter any problems installing the app, get in touch with [itch.io support](https://itch.io/support).
 
 ### Verifying the installer
 
-All our installers, along with the application itself, are digitally signed
-with an Open Source Developer certificate to the name of [Amos Wenger][].
+All our installers, along with the application itself, are digitally signed with a certificate to the name of **itch corp**.
 
-[Amos Wenger]: https://github.com/fasterthanlime
+![](/assets/itchsetup-certs.png)
 
-![Verifying the code signature on Windows 10](windows-code-signature.png)
+_Open this dialog by right-clicking the installer, and choosing 'Properties'._
 
-*Open this dialog by right-clicking the installer, and choosing 'Properties'.*
+> It's a good habit to verify the signatures of executables you download — if you encounter an installer that pretends to be the itch app, but doesn't have our digital signature on it, you should not use it.
+>
+> \(Even the [canary version](./canary.md) is digitally signed with the same certificate.\)
 
-It's a good habit to verify the signatures of executables you download — if
-you encounter an installer that pretends to be the itch app, but doesn't have
-our digital signature on it, you should not use it as it may be malware.
+### Antivirus software
 
-(Even the [canary version](./canary.md) is digitally signed with the same certificate.)
+We often release new version of the itch.io app or the components it depends on.
 
-### Windows Defender / security warnings
+You might encounter screens like these if you have a third-party antivirus installed:
 
-Some people have reported issues installing the app on Windows 10, seeing
-dialogs similar to this one:
+![](/assets/avast.png)
 
-![](win10-security-warning.png)
+We're working with Antivirus vendors to suppress these, but in the meantime, if you trust us, you can add the following locations to your whitelist:
 
-The symptoms seem to change from machine to machine and from version to version,
-there doesn't seem to be a definitive answer to it yet, but any new information
-is welcome in the [discussion thread dedicated to it][issue-214].
+* `%LOCALAPPDATA%\itch`
+* `%APPDATA%\itch\broth`
+* `%APPDATA%\itch\prereqs`
 
-[issue-214]: https://github.com/itchio/itch/issues/214
-
-Additionally, we have contacted Microsoft support about this and are waiting to
-hear back from them.
+> "broth" contains components required for the itch app to run properly.
+>
+> Don't add the entire `%APPDATA%\itch` folder as it would prevent your Antivirus from scanning the games you're install.
 
 ## Updating
 
-The app's behavior when it comes to updating (itself) is:
+The app's behavior when it comes to updating \(itself\) is:
 
-  * Checking for updates every 6 hours
-    * Or when manually asked to via the `Help -> Check for Updates` menu
-  * When it finds an update, will download and apply it
-  * At which point it'll prompt you to either:
-    * Restart the app to take advantage of the new version right now, or
-    * Snooze the update, and wait for the next time you restart the app yourself
+* Checking for updates every 6 hours
+  * Or when manually asked to via the `Help -> Check for Updates` menu
+* When it finds an update, will download and apply it
+* At which point it'll prompt you to either:
+  * Restart the app to take advantage of the new version right now, or
+  * Snooze the update, and wait for the next time you restart the app yourself
 
 ![](update-dialog.png)
 
 ## Uninstalling
 
-itch can be uninstalled from the 'Add or Remove Software' section of the Windows
-control panel:
+itch can be uninstalled from the **Apps & Features** section of the Windows 10 settings:
 
-![](windows-uninstall.png)
+![](/assets/win10-uninstall.png)
 
-On Windows 10, you can also find and uninstall it from the 'Apps & Features' section
-of the Windows 10 settings interface:
+For older Windows versions, use the Control Panel as usual.
 
-![](win10-uninstall.png)
+> Note: uninstalling the itch.io app does not wipe the `%APPDATA%\itch` folder, which contains all your installed games, local database, web session data and cache, and so on.
+>
+> If you really want to delete it all, you'll need to take care of that folder too.
+
+
+

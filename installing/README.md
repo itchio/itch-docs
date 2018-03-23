@@ -1,12 +1,10 @@
 # Installing itch
 
-You can download the latest version of the app from [https://itch.io/app](https://itch.io/app).  
-The download button leads to a page that will attempt to detect your current platform  
-and redirect you to the appropriate download.
+You can download the latest version of the app from [https://itch.io/app](https://itch.io/app).
 
-Additionally, there are .deb and .rpm repositories, and AUR packages that  
-you might miss out on if you rely on the main download page. To learn more about these,  
-please refer to the following pages:
+Additionally, there are .deb and .rpm repositories, and AUR packages.
+
+To learn more, refer to:
 
 * [Installing on Windows](windows.md)
 * [Installing on macOS](macos.md)
@@ -16,13 +14,11 @@ Release notes for all versions are available [on GitHub](https://github.com/itch
 
 ## Upgrading itch
 
-On macOS and Windows, the app automatically updates itself, notifying you when  
-it's ready to be restarted, with a list of changes:
+On macOS and Windows, the app automatically updates itself, notifying you when it's ready to be restarted, with a list of changes:
 
-On Linux, you currently have to download and install a newer package yourself,  
-except if you're using our .deb or .rpm repository, although we are [working  
-on an alternative](https://github.com/itchio/itchSetup).
+![](/assets/changelog.png)
 
-You can check the currently running version of the app by hovering the `itch`  
-logo in the top-left corner, or by opening the Preferences menu.
+On Linux, you currently have to download and install a newer package yourself, except if you're using our .deb or .rpm repository, although we are [working on an alternative](https://github.com/itchio/itchSetup).
+
+You can check the currently running version of the app by hovering the `itch `logo in the top-left corner, or by opening Preferences.
 
