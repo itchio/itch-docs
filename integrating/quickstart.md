@@ -32,11 +32,11 @@ To learn more about the workflows that the itch.io app plays well with, read the
 
 ## Tag your uploads
 
-This is already done for you if you use butler with a reasonable channel name, see [Troubleshooting](/integrating/troubleshooting-guide.md).
+This is already done if you use `butler push` with a reasonable channel name, see [Troubleshooting](/integrating/troubleshooting-guide.md).
 
 ## Keep it simple, or ship a manifest
 
-If you have a single top-level executable \(Windows\), or .app file \(macOS\), or binary or shell script \(Linux\), then things should **Just Work**.
+If you have a single top-level executable \(Windows\), or .app file \(macOS\), or binary or shell script \(Linux\), then things should **Just Work\(TM\)**.
 
 If your game:
 
