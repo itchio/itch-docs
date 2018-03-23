@@ -6,7 +6,7 @@ Its intended audience includes:
 
 * People using the app to install, manage and launch games and applications
 * Game and application developers publishing to itch.io
-* Contributors to the app \(it's open-source!\)
+* Contributors to the app \([it's open-source!](https://github.com/itchio/itch)\)
 
 **This document describes the bleeding-edge version of the app.**  
 If you're looking for documentation on the latest stable release, you can read it at:

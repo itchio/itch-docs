@@ -66,9 +66,23 @@ However, as of version 25.x of the application, they're gold tier, because 7-zip
 
 TAR is a funny beast[^9]. It was designed for backing data on tapes, so it's a linear format. It doesn't specify compression, so the entire stream is compressed with something else.
 
-For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 \(bzip2, an odd format in itself[^8]\), the installation can be paused anywhere.
+For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 \(bzip2, an odd format in itself[^8]\), the installation can be paused anywhere, because we have custom decompression engines for gzip and bzip2.
+
+## Silver tier
+
+This tier is very similar to gold tier, but they have a separate **download** and **install** phase, and use temporary storage during installation.
+
+> This sounds innocuous, but if you ship a 10GB game as a 4GB setup file, and the user only has 12GB disk space, they won't be able to install it.
+
+### .7z archives \(Silver tier\)
+
+The 7z format has wonderful properties, but no entry directory. It handles entries "as a whole" rather than invidiually \(what .zip does\) to achieve better compression, and as a result, it's not feasible to pause/resume compression without having to redownload and re-decompress large portions of the source file.
+
+As a result, we force downloading .7z files to disk before extracting them, and it's silver tier. Sorry Igor![^10]
 
 ### tar.xz archives \(Silver tier\)
+
+XZ is also a container format \(like .zip\), but in .tar.xz's case it's just used as an excuse to use LZMA2. We don't have a custom LZMA2 engine \(we use 7-zip for that\), so we download them to disk first.
 
 [^1]: Extractors on Linux & macOS tend to forget about file permissions \(notably, the executable bit\), but that's 100% on them.
 
@@ -86,4 +100,7 @@ For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 
 
 [^8]: Only mainstream format to use [Burrows-Wheeler](https://en.wikipedia.org/wiki/Burrows–Wheeler_transform), typically has low compression \_and \_decompression speeds? The world was weird before LZMA.
 
-[^9]: A quick note to .zip haters: TAR has also had [an eventful childhood](https://en.wikipedia.org/wiki/Tar_(computing)), and as a result, is just as messy. This is just another of those "ignorance is bliss" subjects, so maybe don't follow that link.
+[^9]: A quick note to .zip haters: TAR has also had [an eventful childhood](https://en.wikipedia.org/wiki/Tar_%28computing%29), and as a result, is just as messy. This is just another of those "ignorance is bliss" subjects, so maybe don't follow that link.
+
+[^10]: Igor Pavlov is the driving force behind 7-zip. Reading the [release notes](https://www.7-zip.org/history.txt) is nothing short of awe-inspiring. I feel like we all have a collective debt towards Igor.
+
