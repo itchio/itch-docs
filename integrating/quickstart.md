@@ -32,9 +32,7 @@ To learn more about the workflows that the itch.io app plays well with, read the
 
 ## Tag your uploads
 
-For each upload, tick the appropriate checkbox so the app knows what to install for which platform:
 
-![](tags.png)
 
 ## Keep it simple, or ship a manifest
 
