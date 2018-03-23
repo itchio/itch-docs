@@ -16,7 +16,7 @@ Builds pushed with [butler](https://itch.io/docs/butler) are **Platinum tier**, 
 * Upgrading an installation uses **binary patch files** which are small, beautiful, and efficient.[^3]
 * Uninstalls are near-instantaneous.
 
-Platinum tier is the, uh, gold standard we strive for, and all you have to do for it to work is simply to use butler to push your builds.
+Platinum tier is the, uh, gold standard we strive for, and all you have to do for it to work is simply to **use **[**butler**](https://itch.io/docs/butler)** to push your builds**.
 
 ## Gold tier
 
@@ -26,6 +26,15 @@ All tiers below platinum have the following inconvenients:
 * **No integrity check** - it's reinstall or nothing.
 
 However, installs still don't require additional disk space, or administrator privileges, and uninstalls are instant.
+
+The itch.io app achieves this level of support by:
+
+* Using either custom decompression engines or 7-zip under the hood
+* Having those engines operate on "remote files" by
+  * transparently making HTTP range requests
+  * with opportunistic caching \(in memory\)
+
+Install pause/resume support is poorer for some of these: resuming might restart from the beginning of an entry rather than where it left off.
 
 ### .zip archives \(Gold tier\)
 
@@ -40,11 +49,32 @@ We however, like[^5] the .zip file format because it:
 
 In fact, we like it so much it's the de-facto storage format for builds pushed with butler.
 
+We support everything in ISO/IEC 21320-1:2015, along with some extensions:
+
+* LZMA-compressed entries[^7]
+* Shift-JIS filenames \(typically Japanese games\)
+
+### .rar archives \(Gold tier\)
+
+There's a lot to dislike about the RAR file format - the licensing terms, the file structure, etc.[^6]
+
+However, as of version 25.x of the application, they're gold tier, because 7-zip has great support for them.
+
+> Note: Installs from .rar files have a significant warm-up time before progress is visible, because the entries are organized differently from .zip files.
+
+### .tar, .tar.gz, .tar.bz2 archives \(Gold tier\)
+
+TAR is a funny beast[^10]. It was designed for backing data on tapes, so it's a linear format. It doesn't specify compression, so the entire stream is compressed with something else.
+
+For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 \(bzip2, an odd format in itself[^8]\), the installation can be paused anywhere.
+
+### tar.xz archives \(Silver tier\)
 
 
 
 
 
+[^10]: Enter footnote here.
 
 [^1]: Extractors on Linux & macOS tend to forget about file permissions \(notably, the executable bit\), but that's 100% on them.
 
@@ -55,4 +85,10 @@ In fact, we like it so much it's the de-facto storage format for builds pushed w
 [^4]: Versions of the itch.io app up to 23.x used to take guesses as to non-butler-uploads updates. It caused more problems than it solved, so that's no longer the case.
 
 [^5]: The actual sentiment is more along the lines of "everything else has significant drawbacks and no amount of GitHub comments would convince us otherwise at this point in time", but that doesn't roll off the tongue quite as easily.
+
+[^6]: The fact that malware authors love it, the amount of password-protected archives out there, the fact that at least 3 major versions are in use in the wild \(Rar2, Rar3, Rar5\), and that it reminds one about the golden age of Rare, the one from Twycross Leicestershire.
+
+[^7]: LZMA entries are indeed smaller, but if installation is paused in the middle of one of those, it'll have to start over at the beginning of the entry. As opposed to DEFLATE, which we support mid-entry checkpoints for.
+
+[^8]: Only mainstream format to use [Burrows-Wheeler](https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform), typically has low compression _and _decompression speeds? The world was weird before LZMA.
 
