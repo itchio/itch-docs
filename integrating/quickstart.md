@@ -32,7 +32,7 @@ To learn more about the workflows that the itch.io app plays well with, read the
 
 ## Tag your uploads
 
-
+This is already done for you if you use butler with a reasonable channel name, see [Troubleshooting](/integrating/troubleshooting-guide.md).
 
 ## Keep it simple, or ship a manifest
 
@@ -50,23 +50,12 @@ Then **you'll need an **[**app manifest**](/integrating/manifest.md).
 
 ## Test your games
 
-The itch app will let you install all your own projects, whether they  
-have a minimum price or not. If you need help testing your game, here are  
-places you can look for testers:
+The itch.io app will let you install all your own projects, whether they have a minimum price or not.
+
+If you need help testing your game, here are places you can look for testers:
 
 * The [itch.io community forums](https://itch.io/community)
 * The [itch.io chat](https://itch.io/chat)
 
-## A note about page types
 
-The [itch.io](https://itch.io) website lets you pick between several  
-project types.
-
-The app does platform filtering, configuration and launching  
-for the types `game` and `tool`. All other types, including `assets`,  
-`game_mod`, `physical_game`, `soundtrack`, `comic`, `book`, and `other`  
-are just treated like a folder that it lets the user open.
-
-If you're wondering why the app is giving you the choice to download  
-something that isn't tagged for your platform, that's why.
 
