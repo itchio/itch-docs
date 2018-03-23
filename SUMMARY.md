@@ -22,7 +22,7 @@
     * [Install locations](using/install-locations.md)
     * [Collections](using/collections.md)
 * [Game developer guide](integrating/README.md)
-  * [Quickstart guide](integrating/quickstart.md)
+  * [Quick start](integrating/quickstart.md)
     * [Windows builds](integrating/platforms/windows.md)
     * [macOS builds](integrating/platforms/macos.md)
     * [Linux builds](integrating/platforms/linux.md)
@@ -36,6 +36,8 @@
     * [XNA Framework](integrating/prereqs/xna.md)
     * [DirectX](integrating/prereqs/dx.md)
   * [API integration](integrating/api/README.md)
+  * Compatibility policy
+  * [Troubleshooting](integrating/troubleshooting-guide.md)
 * [Contributor guide](developing/README.md)
   * [How you can help](developing/help.md)
     * [Getting started with the codebase](developing/getting-started.md)
