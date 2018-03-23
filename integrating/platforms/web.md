@@ -1,47 +1,32 @@
-
 # Distributing Web games
 
 Web games have several advantages:
 
-  * They're easily accessible from web browsers
-  * They're less of a security threat than native games
-  * They work on all three platforms out of the box
+* They're easily accessible from web browsers
+* They're less of a security threat than native games
+* They work on all three platforms out of the box
 
-However, they also tend to perform more poorly, and to have worse
-platform integration.
+However, they also tend to perform more poorly, and to have worse platform integration.
 
-Since version v0.14.0, the itch app supports installing and launching
-web games. Like the website, it will look for an `index.html` file to
-show.
+The itch.io app supports installing and launching web games. They'll behave as if they were running in Google Chrome.
 
-*Note: game pages that aren't of type `web` won't work as web games even if
-they ship an executable-less archive with an `index.html` somewhere.
-(Twine compilations are particularly affected by that, you can work around it
-by [shipping an app manifest](../manifest.md))*
+Like the website, it will look for an `index.html` file \(or a top-level `.html` file with another name\).
 
-## Fullscreen
+You can use `Shift+F12` to open the developer toosl, see [Troubleshooting](/integrating/troubleshooting-guide.md) for more details.
 
-As long as your game renders to a canvas, you should be fine.
+### Fullscreen support
 
-Describe behavior of the app in fullscreen, mention influence of 'width/height'
-settings in edit game page (it tries to keep the ratio)
+HTML5 games launched with the app can be switched to fullscreen and their window can be resized, so make sure your CSS handles that properly.
 
-## Engine-specific notes
+### Java applets
 
-### Unity WebGL
+Java applets are not supported by the itch.io app.
 
-The default Unity WebGL export includes an interface around the canvas, with
-the project's name and its own fullscreen button. The itch app attempts to hide
-that so that the game fills the entire window.
+### Flash games
 
-### Pico-8
+Flash games are not supported by the itch.io app.
 
-Pico-8 web exports have their own interface and fullscreen mode, so the app
-doesn't attempt to resize their canvases.
+### Legacy Unity plug-in games
 
-### Unity plug-in
+Legacy Unity plug-in games are not supported by the itch.io app. Use the **WebGL export** option instead.
 
-So-called *Unity plug-in* games aren't web games. They require a proprietary
-browser plug-in to run, and aren't supported by the app. They're also being
-actively phased out by Unity, and incompatible with at least one major browser
-(Google Chrome).
