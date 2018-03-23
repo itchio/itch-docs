@@ -11,10 +11,12 @@ Combined with the rest of our [server-side API](https://itch.io/docs/api/servers
 * Get a proof of purchase
 
 For example, you might want your online play servers to be only accessible  
-by users who have purchased a legitimae copy of your game, and to all press users.
+by users who have purchased a legitimate copy of your game, and to all press users.
 
-For more information, refer to the **API key** part of the [app manifest](../manifest.md) page.
+> Note: our API offering will continue to expand over time. If you have particular needs  
+> for your game's release, don't hesitate to get in touch with us at [hello@itch.io](mailto:hello@itch.io)
 
-_Note: our API offering will continue to expand over time. If you have particular needs  
-for your game's release, don't hesitate to get in touch with us at _[_hello@itch.io_](mailto:hello@itch.io)
+## Getting started
+
+For more information, refer to the **API key** part of the [Manifest actions](/integrating/manifest-actions.md) page.
 
