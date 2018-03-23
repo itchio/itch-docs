@@ -64,15 +64,11 @@ However, as of version 25.x of the application, they're gold tier, because 7-zip
 
 ### .tar, .tar.gz, .tar.bz2 archives \(Gold tier\)
 
-TAR is a funny beast[^10]. It was designed for backing data on tapes, so it's a linear format. It doesn't specify compression, so the entire stream is compressed with something else.
+TAR is a funny beast. It was designed for backing data on tapes, so it's a linear format. It doesn't specify compression, so the entire stream is compressed with something else.
 
 For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 \(bzip2, an odd format in itself[^8]\), the installation can be paused anywhere.
 
 ### tar.xz archives \(Silver tier\)
-
-
-
-
 
 [^10]: Enter footnote here.
 
@@ -90,5 +86,5 @@ For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 
 
 [^7]: LZMA entries are indeed smaller, but if installation is paused in the middle of one of those, it'll have to start over at the beginning of the entry. As opposed to DEFLATE, which we support mid-entry checkpoints for.
 
-[^8]: Only mainstream format to use [Burrows-Wheeler](https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform), typically has low compression _and _decompression speeds? The world was weird before LZMA.
+[^8]: Only mainstream format to use [Burrows-Wheeler](https://en.wikipedia.org/wiki/Burrows–Wheeler_transform), typically has low compression \_and \_decompression speeds? The world was weird before LZMA.
 
