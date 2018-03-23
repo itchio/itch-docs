@@ -23,7 +23,7 @@ If you aren't familiar with Linux at all, the most effective use of your resourc
 
 Some people port games to Linux for a living — finding them online shouldn't be too hard. If you have a Publisher, they might be able to connect you to someone.[^1]
 
-## Homemade / low-level engine \(Advanced\)
+## Portable builds the hard way
 
 If you're compiling binaries yourselves, either using a lower-level game engine, or coding your own, then you need to bundle the required libraries yourself.
 
@@ -131,7 +131,7 @@ $ bins/plant64
 bins/plant64: error while loading shared libraries: libSDL2-2.0.so.0: cannot open shared object file: No such file or directory
 ```
 
-**Important note:** `glibc` and `libstdc++` are libraries you usually do _not _want to bundle. Just make sure your application doesn't depend on a version of them that is too recent \(as explained below\).
+**Important note:** `glibc` and `libstdc++` are libraries you usually do \_not \_want to bundle. Just make sure your application doesn't depend on a version of them that is too recent \(as explained below\).
 
 The same advice applies to most `libGL*.so` libraries — don't bundle your own graphic card's drivers!
 
