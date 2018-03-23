@@ -4,7 +4,7 @@ This guide describes the _ideal way_ to publish software on itch.io, ie. **Plati
 
 But it's cold out there in the real world, and on an open platform, life happens, and they stray from The Good Workflow. Nevertheless, the app tries its best to _get anything it can to run_, within certain rules.
 
-**TL;DR: if you absolutely, positively, cannot use butler, **_**just upload a .zip**_**.**
+**TL;DR: if you **_**cannot**_** use butler, **_**just upload a .zip**_**.**
 
 ## Platinum tier
 
