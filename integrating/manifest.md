@@ -1,20 +1,18 @@
-
 # App manifests
 
 There are several good reasons to include an app manifest with your game:
 
-  * The [built-in heuristics](./README.md) do not accurately identify the "main executable" to launch
-  * The user should be able to choose between several executables
-    * Examples: game, level editor, etc.
-  * The user should be able to pick non-executable launch options
-    * Examples: pdf/html user manual
-  * Your app needs access to the itch.io API, for authentication or more
+* You want to provide a choice between multiple launch targets
+  * Examples: game, level editor, etc.
+* Your app needs access to [the itch.io API](https://itch.io/docs/api/overview), for authentication or more
+* The [built-in heuristics](./README.md) do not accurately identify the "main executable" to launch
 
 ## Basics
 
-An itch.io app manifest is a file named `.itch.toml` placed at the top-level
-of your game directory. For example, the Windows build of a Unity game might
-be structured like this:
+A manifest is a file named `.itch.toml` placed at the top level  
+of your game directory.
+
+For example, the Windows build of a Unity game might be structured like this:
 
 ```
 - FooBar-windows.zip
@@ -31,16 +29,98 @@ The same application for macOS could have this structure:
   - .itch.toml
 ```
 
-The contents of the file must be valid [TOML markup][toml]. TOML is
-relatively young (younger than YAML and JSON), but it simple and friendly
-both to humans and computers alike.
+The contents of the file must be valid [TOML markup](https://github.com/toml-lang/toml).
 
-[toml]: https://github.com/toml-lang/toml
+## Validating your manifest
 
-## Prerequisites (Windows)
+Before you push a build with your manifest file, you can validate with the [butler](https://itch.io/docs/butler) `validate` command.
 
-itch can ensure a certain number of prerequisites / redistributables are installed before
-your app is launched.
+As an example, here's [Sample Evil App](https://github.com/fasterthanlime/sample-evil-app)'s manifest being validated:
+
+```
+$ butler validate .itch.toml
+
+∙ Validating manifest only
+For runtime 64-bit Windows (use --platform and --arch to simulate others)
+
+
+================== Warning ==================
+In manifest-only validation mode. Pass a valid build directory to perform further checks.
+=============================================
+
+∙ Validating 477 B manifest at (.itch.toml)
+
+√ Validating 3 actions...
+
+  → Action 'Default' (Sample Evil App{{EXT}})
+    Requests API scope (profile:me)
+
+  → Action 'Sandbox opt-in' (Sample Evil App{{EXT}})
+    Requests API scope (profile:me)
+    Sandbox opt-in
+
+  → Action 'Args' (Sample Evil App{{EXT}})
+    Passes arguments: being ::: john ::: malkovich
+
+√ Validating 5 prereqs...
+
+  → Microsoft Visual C++ 2010 Redistributable (x86) (vcredist-2010-x86)
+    Available on Windows for architecture 386
+
+  → Microsoft Visual C++ 2010 Redistributable (x64) (vcredist-2010-x64)
+    Available on Windows for architecture amd64
+
+  → Microsoft Visual C++ 2015 Redistributable Update 3 (x86) (vcredist-2015-x86)
+    Available on Windows for architecture 386
+
+  → Microsoft Visual C++ 2015 Redistributable Update 3 (x64) (vcredist-2015-x64)
+    Available on Windows for architecture amd64
+
+  → OpenAL (openal-1.1)
+    Available on Windows for architecture 386
+```
+
+Validate will warn you against unknown or misspelled configuration keys:
+
+```
+================== Warning ==================
+1 error(s) decoding:
+
+* 'Actions[0]' has invalid keys: cope
+=============================================
+```
+
+And it will return a non-zero exit code if a serious error is found, like a missing prerequisite:
+
+```
+================== Error ==================
+Unknown prerequisite listed: openal-1.1x
+=============================================
+
+Found 1 errors.
+```
+
+Or invalid configuration:
+
+```
+error: Decoding error:
+*mapstructure.Error 1 error(s) decoding:
+
+* 'Actions[1].Sandbox' expected type 'bool', got unconvertible type 'int64'
+```
+
+## Prerequisites
+
+itch can ensure that certain libraries are installed before your app is launched.
+
+These typically include Microsoft Visual C++ Redistributables, DirectX, XNA, etc.
+
+This minimal manifest can be used for a 32-bit windows build that requires Visual C++ 2010:
+
+```toml
+[[prereqs]]
+name = "vcredist-2010-x86"
+```
 
 Read the [prerequisites documentation](./prereqs/README.md) to get started.
 
@@ -61,25 +141,25 @@ args = ["--editor"]
 
 Valid actions contain at least:
 
-  * A name: this will affect the label shown to users
-  * A path: this specifies what to run when the action is picked
+* A name: this will affect the label shown to users
+* A path: this specifies what to run when the action is picked
 
-For executables, give the path of the `.exe` on Windows, of the binary
+For executables, give the path of the `.exe` on Windows, of the binary  
 or launcher script on Linux, and of the `FooBar.app` app bundle on macOS.
 
 ### Names
 
 A few well-known names are supported:
 
-  * `play`: shows up as `Play Now` in english, is highlighted
-  * `editor`: shows up as `Editor` in english
-  * `manual`: shows up as `User Manual` in english
-  * `forums`: shows up as `Forums` in english
+* `play`: shows up as `Play Now` in english, is highlighted
+* `editor`: shows up as `Editor` in english
+* `manual`: shows up as `User Manual` in english
+* `forums`: shows up as `Forums` in english
 
-Well-known names are localized as well as the rest of the itch app
+Well-known names are localized as well as the rest of the itch app  
 via our translation platform, and have a corresponding icon.
 
-Custom names are supported too, but you'll need to provide your own
+Custom names are supported too, but you'll need to provide your own  
 localizations. For example:
 
 ```toml
@@ -94,23 +174,23 @@ name = "Allons-y!"
 name = "Gehen wir bereits!"
 ```
 
-*Note: the example manifest above describes just a single action, in three languages.*
+_Note: the example manifest above describes just a single action, in three languages._
 
 ### Paths
 
 Paths can either be:
 
-  * A file path, relative to the manifest's location (ie. the game folder)
-  * An URL
+* A file path, relative to the manifest's location \(ie. the game folder\)
+* An URL
 
 File paths that are executables will be launched by itch as usual.
 
-File paths that are not executables will be opened by the operating system
+File paths that are not executables will be opened by the operating system  
 shell, for example:
 
-  * A folder might be opened in a file explorer
-  * A pdf file might be opened by the system's PDF reader
-  * and so on
+* A folder might be opened in a file explorer
+* A pdf file might be opened by the system's PDF reader
+* and so on
 
 URLs will be opened as a new tab in the itch app.
 
@@ -129,17 +209,15 @@ args = ["--that", "--is", "--a", "lot=of-arguments"]
 
 ### Sandbox opt-in
 
-Adding `sandbox = true` to an action opts into [the itch.io sandbox][sandbox]. This
-means that, no matter what the user's settings are, the game will always
+Adding `sandbox = true` to an action opts into [the itch.io sandbox](../using/sandbox.md). This  
+means that, no matter what the user's settings are, the game will always  
 be launched within the sandbox.
 
-Game developers are encouraged to opt into the sandbox as early as they can
-afford to, to have plenty of time to adapt to it. In the future, the sandbox
-might become mandatory (for app users).
+Game developers are encouraged to opt into the sandbox as early as they can  
+afford to, to have plenty of time to adapt to it. In the future, the sandbox  
+might become mandatory \(for app users\).
 
-More information about the itch.io sandbox is available [on its documentation page][sandbox].
-
-[sandbox]: ../using/sandbox.md
+More information about the itch.io sandbox is available [on its documentation page](../using/sandbox.md).
 
 ### API key & scoping
 
@@ -147,19 +225,19 @@ Games can ask for an itch.io API key by setting the `scope` parameter.
 
 Valid values are:
 
-  * `profile:me`: grants access to `https://itch.io/api/1/jwt/me`
-  * (This is the only valid scope for now)
+* `profile:me`: grants access to `https://itch.io/api/1/jwt/me`
+* \(This is the only valid scope for now\)
 
-When the `scope` parameter is set, the itch app will generate a game-specific,
-session-specific API key, and pass it to the application via the `ITCHIO_API_KEY`
+When the `scope` parameter is set, the itch app will generate a game-specific,  
+session-specific API key, and pass it to the application via the `ITCHIO_API_KEY`  
 environment variable.
 
-Additionally, the `ITCHIO_API_KEY_EXPIRES_AT` environment variable will be set to the
+Additionally, the `ITCHIO_API_KEY_EXPIRES_AT` environment variable will be set to the  
 expiration date of the key, in iso-8601 format.
 
 #### Making requests with the API key
 
-The itch.io API key provided to the game should be the value of an HTTP
+The itch.io API key provided to the game should be the value of an HTTP  
 header named `Authorization`.
 
 For example, using the JavaScript library `needle`, one would do:
@@ -177,7 +255,7 @@ needle.get('https://itch.io/api/1/jwt/me', opts, function (error, response) {
 
 #### Accessing the API key in HTML5 games
 
-The HTML5 environment doesn't grant access to environment variables by design,
+The HTML5 environment doesn't grant access to environment variables by design,  
 so the itch app injects a global object named `Itch` into the JavaScript runtime.
 
 Here's the proper way to check that it's there:
@@ -191,18 +269,18 @@ if (typeof Itch === 'undefined') {
 }
 ```
 
-XHR (XMLHTTPRequest / AJAX) requests are normally limited to the host that
-served the javascript: in the case of HTML5 games, an HTTP server is spinned
-up every time the game is launched. The itch app disables the same-origin
-policy so that your HTML5 game can make requests to the itch.io server or
+XHR \(XMLHTTPRequest / AJAX\) requests are normally limited to the host that  
+served the javascript: in the case of HTML5 games, an HTTP server is spinned  
+up every time the game is launched. The itch app disables the same-origin  
+policy so that your HTML5 game can make requests to the itch.io server or  
 to your own server somewhere else.
 
 ### Console / text-mode applications
 
-By default, the itch app redirects the standard output and standard error to
+By default, the itch app redirects the standard output and standard error to  
 a log file on disk, which helps debugging when reports are sent.
 
-For console applications, this might not be desirable. You can opt out from
+For console applications, this might not be desirable. You can opt out from  
 redirection by setting the `console` attribute of the relevant action to `true`:
 
 ```
@@ -215,3 +293,4 @@ console = true
 On Windows, it'll also open a new command line window to display the game into.
 
 On other platforms, this attribute is not yet supported.
+
