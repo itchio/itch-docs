@@ -93,7 +93,7 @@ However, **we do not support**:
 * Specifying a removable installation medium \(DVD, etc.\) or a network installation source \(FTP, HTTP etc.\)
 * Many other custom Mojosetup features.
 
-### Self-extracting InstallShield archives \(Gold tier\)
+### Self-extracting InstallShield archives \(Gold\)
 
 Looks like an .exe, is actually a .cab. We identify those and extract them without storing them on disk first. We've only seen one in the wild so far, but hey, better safe than sorry.
 
@@ -103,7 +103,7 @@ This tier is very similar to gold tier, but they have a separate **download** an
 
 > This sounds innocuous, but if you ship a 10GB game as a 4GB setup file, and the user only has 12GB disk space, they won't be able to install it.
 
-### .7z archives \(Silver tier\)
+### .7z archives \(Silver\)
 
 The 7z format has wonderful properties, but no entry directory. It handles entries "as a whole" rather than invidiually \(what .zip does\) to achieve better compression, and as a result, it's not feasible to pause/resume compression without having to redownload and re-decompress large portions of the source file.
 
