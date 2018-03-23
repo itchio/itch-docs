@@ -68,6 +68,31 @@ TAR is a funny beast[^9]. It was designed for backing data on tapes, so it's a l
 
 For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 \(bzip2, an odd format in itself[^8]\), the installation can be paused anywhere, because we have custom decompression engines for gzip and bzip2.
 
+### .dmg \(Gold tier\)
+
+Okay, all formats have some flavor of strange somewhere. But DMG files somehow take the cake, as they're:
+
+* HFS+ \(or APFS\) partitions
+* Stored in a file
+  * without a stable magic number
+  * usually compressed \(sometimes with bzip2, but not always\)
+  * that typically contain multiple volumes, listed in an embedded XML file
+
+And yet, 7-zip lets us extract any item we want easily, so they're gold tier.
+
+> Note: if your DMG file contains a dialog with a EULA in it, it's not going to be shown during installation
+
+### MojoSetup \(Gold tier\)
+
+[MojoSetup](https://www.icculus.org/mojosetup/) installers are basically a Linux binary concatenated with a .zip archive.
+
+Except when they're not, and they contain a .tar.xz data payload. We handle both cases \(uncompressed data, and .tar.xz data\).
+
+However, **we do not support**:
+
+* Specifying a removable installation medium \(DVD, etc.\) or a network installation source \(FTP, HTTP etc.\)
+* Many other custom Mojosetup features.
+
 ## Silver tier
 
 This tier is very similar to gold tier, but they have a separate **download** and **install** phase, and use temporary storage during installation.
@@ -78,7 +103,7 @@ This tier is very similar to gold tier, but they have a separate **download** an
 
 The 7z format has wonderful properties, but no entry directory. It handles entries "as a whole" rather than invidiually \(what .zip does\) to achieve better compression, and as a result, it's not feasible to pause/resume compression without having to redownload and re-decompress large portions of the source file.
 
-As a result, we force downloading .7z files to disk before extracting them, and it's silver tier. Sorry Igor![^10]
+As a result, we force downloading .7z files to disk before extracting them, and it's silver tier. Sorry Igor[^10]
 
 ### tar.xz archives \(Silver tier\)
 
