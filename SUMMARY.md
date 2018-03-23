@@ -27,6 +27,7 @@
     * [macOS builds](integrating/platforms/macos.md)
     * [Linux builds](integrating/platforms/linux.md)
     * [Web builds](integrating/platforms/web.md)
+  * [Validating builds and manifests](integrating/manifest/validating-your-manifest.md)
   * [How updates work](integrating/updates.md)
   * [App manifests](integrating/manifest.md)
   * [Prerequisites](integrating/prereqs/README.md)
