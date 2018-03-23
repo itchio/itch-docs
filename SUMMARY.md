@@ -30,6 +30,7 @@
   * [Validating builds and manifests](integrating/manifest/validating-your-manifest.md)
   * [How updates work](integrating/updates.md)
   * [App manifests](integrating/manifest.md)
+  * [Manifest actions](integrating/manifest-actions.md)
   * [Prerequisites](integrating/prereqs/README.md)
     * [Visual C++ Runtime](integrating/prereqs/vc.md)
     * [.NET Framework](integrating/prereqs/dotnet.md)
