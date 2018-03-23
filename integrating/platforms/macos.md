@@ -1,47 +1,41 @@
+# Distributing macOS builds
 
-# Distributing OSX builds
+macOS might just be the ideal platform to distribute third-party, proprietary apps.
 
-OSX might just be the ideal platform to distribute third-party, proprietary apps.
+**Just push your .app bundle with **[**butler**](https://itch.io/docs/butler)**.**
 
-The canonical way to do it is simply to distribute a zipped app bundles,
-e.g. `Your Game.app.zip`.
+That's it.
 
-App bundles are directory with a standardized structure and some metadata
-in an `Info.plist` file. Here's a [good stackoverflow thread][so-app] on how
-they're created.
+If you need an [app manifest](/integrating/manifest.md), put your .app and the manifest in a folder, and push _that one_ with butler.
 
-[so-app]: http://stackoverflow.com/questions/1596945/building-osx-app-bundle
+> If you really _really_ want to do something else, read the [Compatibility policy](/integrating/compatibility-policy.md) page.
 
-## Permissions
+### ...but I don't have an app bundle
 
-macOS is a BSD, so it needs the executable bit to be set before launch any program,
-however, *the itch app takes care of that*. When installing a game, it scans for
-executables and fixes permissions if they're set incorrectly.
+App bundles are directories with a standardized structure and some metadata in an `Info.plist` file.
 
-Be aware, though, that if players try to download and play your game without
-using the itch app, they won't be able to play it (cf. [Error -10810](http://www.thexlab.com/faqs/error-10810.html))
+Here's a [good stackoverflow thread](http://stackoverflow.com/questions/1596945/building-osx-app-bundle) on how they're created. Good luck!
 
-In an interesting twist of events, **if you upload your game using the
-[butler](https://itch.io/docs/butler) command-line upload tool, it will also
-fix permissions for you.**
+> Please don't push naked macOS binaries.
+>
+> Support for them is disappearing a little more every macOS release.
 
-## macOS security policy
+## Symbolic links and permissions
 
-For players that are *not* using the itch app, you might get reports of your app
-being "Damaged and can't be opened" and that it should "be moved to the trash".
+App bundles typically have symbolic links \(for frameworks\) and need some file permissions to be set properly.
 
-Distributing through the app avoids these issues, so you might want to
-encourage your players to use <https://itch.io/app> to play your game.
+We've taken several measures to ensure this works properly:
 
-The underlying reason is as follows:
+* At upload time
+  * butler handles symlinks, and fixes file permissions if they're wrong
+* At launch time
+  * the itch.io app fixes permissions if they're wrong.
 
-  * Apple wants all developers to sign their app
-  * Which requires a $99/year code certificate (and one week of figuring out
-    the right invocation, along with a macOS install handy)
-  * ...and doesn't actually prevent malware (but makes it easier to blacklist)
+> If you don't use butler and upload an archive with wrong permissions, when players download and play your game without using the itch.io app, they'll encouter [Error -10810](http://www.thexlab.com/faqs/error-10810.html).
 
-Sandboxing is a little better, and Apple does it for Mac App Store apps.
-We also do it, in a [much less constraining way](../../using/sandbox.md).
+## Gatekeeper & other security measures
 
-Other "fixes" floating around the web encourage users to disable macOS's checks
-for signed apps. Don't do that.
+For players that are **not **using the itch.io app, you might get reports of your app being "Damaged and can't be opened" and that it should "be moved to the trash".
+
+Player who do use the itch.io app do not encounter these issues, so you may want to encourage them to use it.
+
