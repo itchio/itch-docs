@@ -18,5 +18,7 @@ There's two ways to fix this.
 
 The first is to **simplify your directory structure**. Your app might need other .exe files to be present when it works - but they don't all need to be in the top level directory. This is a good fix because it makes the install folder _more obvious to humans as well_.
 
-The second is to [**ship an app manifest**](/integrating/manifest.md) that explicitly lists what needs to be launched. A manifest also lets you specify **prerequisites** \(VC++, DirectX, XNA, OpenAL etc.\) that your game needs, so even if you have a single launch target, read the docs anyway.
+The second is to [**ship an app manifest**](/integrating/manifest.md) that explicitly lists what needs to be launched. A manifest also lets you specify **prerequisites** \(VC++, DirectX, XNA, OpenAL etc.\) that your game needs, so even if you have a single launch target, read the docs anyway.[^1]
+
+[^1]: Speaking of, you're reading docs right now. Big up to you! We appreciate it a lot.
 
