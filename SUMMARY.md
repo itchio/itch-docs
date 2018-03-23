@@ -1,8 +1,8 @@
-
 # Summary
 
+* [Introduction](README.md)
 * [User guide](using/README.md)
-  * [Installing the app](installing/README.md)
+  * [Installing](installing/README.md)
     * [Installing on Windows](installing/windows.md)
     * [Installing on macOS](installing/macos.md)
     * [Installing on Linux](installing/linux/README.md)
@@ -21,7 +21,6 @@
   * [Downloading games](using/downloading.md)
     * [Install locations](using/install-locations.md)
     * [Collections](using/collections.md)
-
 * [Game developer guide](integrating/README.md)
   * [Quickstart guide](integrating/quickstart.md)
     * [Windows builds](integrating/platforms/windows.md)
@@ -36,7 +35,6 @@
     * [XNA Framework](integrating/prereqs/xna.md)
     * [DirectX](integrating/prereqs/dx.md)
   * [API integration](integrating/api/README.md)
-
 * [Contributor guide](developing/README.md)
   * [How you can help](developing/help.md)
     * [Getting started with the codebase](developing/getting-started.md)
@@ -47,8 +45,8 @@
     * [Performance hacking](developing/performance.md)
   * [Behind the scenes](developing/behind-the-scenes.md)
     * [Continuous deployment](developing/continuous-deployment.md)
-    * [Dependencies (broth)](installing/dependencies.md)
-
+    * [Dependencies \(broth\)](installing/dependencies.md)
 * [Appendix](appendix/README.md)
   * [Acknowledgements](appendix/acknowledgements.md)
   * [Building Linux software into a prefix](appendix/building-into-a-prefix.md)
+
