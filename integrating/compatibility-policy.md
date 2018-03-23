@@ -36,7 +36,7 @@ The itch.io app achieves this level of support by:
 
 Install pause/resume support is poorer for some of these: resuming might restart from the beginning of an entry rather than where it left off.
 
-### .zip archives \(Gold\)
+### .zip archives \([Gold tier](#gold-tier)\)
 
 Everyone loves to hate the .zip file format, sometimes with reason. Folks prefer .rar, or .7z, or maybe .xz because they compress smaller. They prefer custom formats, because .zip files have been around for a _long_ time and there's a lot of cruft in the [spec](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT).
 
@@ -54,7 +54,7 @@ We support everything in ISO/IEC 21320-1:2015, along with some extensions:
 * LZMA-compressed entries[^7]
 * Shift-JIS filenames \(typically Japanese games\)
 
-### .rar archives \(Gold\)
+### .rar archives \([Gold tier](#gold-tier)\)
 
 There's a lot to dislike about the RAR file format - the licensing terms, the file structure, etc.[^6]
 
@@ -62,13 +62,13 @@ However, as of version 25.x of the application, they're gold tier, because 7-zip
 
 > Note: Installs from .rar files have a significant warm-up time before progress is visible, because the entries are organized differently from .zip files.
 
-### .tar, .tar.gz, .tar.bz2 archives \(Gold\)
+### .tar, .tar.gz, .tar.bz2 archives \([Gold tier](#gold-tier)\)
 
 TAR is a funny beast[^9]. It was designed for backing data on tapes, so it's a linear format. It doesn't specify compression, so the entire stream is compressed with something else.
 
 For .tar \(uncompressed\), .tar.gz \(gzip, a variant of DEFLATE\), and .tar.bz2 \(bzip2, an odd format in itself[^8]\), the installation can be paused anywhere, because we have custom decompression engines for gzip and bzip2.
 
-### .dmg \(Gold\)
+### .dmg \([Gold tier](#gold-tier)\)
 
 Okay, all formats have some flavor of strange somewhere. But DMG files somehow take the cake, as they're:
 
@@ -82,7 +82,7 @@ And yet, 7-zip lets us extract any item we want easily, so they're gold tier.
 
 > Note: if your DMG file contains a dialog with a EULA in it, it's not going to be shown during installation
 
-### MojoSetup \(Gold\)
+### MojoSetup \([Gold tier](#gold-tier)\)
 
 [MojoSetup](https://www.icculus.org/mojosetup/) installers are basically a Linux binary concatenated with a .zip archive.
 
@@ -93,23 +93,25 @@ However, **we do not support**:
 * Specifying a removable installation medium \(DVD, etc.\) or a network installation source \(FTP, HTTP etc.\)
 * Many other custom Mojosetup features.
 
-### Self-extracting InstallShield archives \(Gold\)
+### Self-extracting InstallShield archives \([Gold tier](#gold-tier)\)
 
 Looks like an .exe, is actually a .cab. We identify those and extract them without storing them on disk first. We've only seen one in the wild so far, but hey, better safe than sorry.
 
+Still, please use .zip instead of doing that.
+
 ## Silver tier
 
-This tier is very similar to gold tier, but they have a separate **download** and **install** phase, and use temporary storage during installation.
+This tier is very similar to [gold tier](#gold-tier), but they have a separate **download** and **install** phase, and use temporary storage during installation.
 
 > This sounds innocuous, but if you ship a 10GB game as a 4GB setup file, and the user only has 12GB disk space, they won't be able to install it.
 
-### .7z archives \(Silver\)
+### .7z archives \([Silver tier](#silver-tier)\)
 
 The 7z format has wonderful properties, but no entry directory. It handles entries "as a whole" rather than invidiually \(what .zip does\) to achieve better compression, and as a result, it's not feasible to pause/resume compression without having to redownload and re-decompress large portions of the source file.
 
 As a result, we force downloading .7z files to disk before extracting them, and it's silver tier. Sorry Igor[^10]
 
-### tar.xz archives \(Silver\)
+### tar.xz archives \([Silver tier](#silver-tier)\)
 
 XZ is also a container format \(like .zip\), but in .tar.xz's case it's just used as an excuse to use LZMA2. We don't have a custom LZMA2 engine \(we use 7-zip for that\), so we download them to disk first.
 
@@ -117,19 +119,21 @@ XZ is also a container format \(like .zip\), but in .tar.xz's case it's just use
 
 This is a tier that really tests our commitment to supporting older builds of games and/or bad habits. On top of having a separate download and install phase and not allowing upgrades, those sometimes **require administrator access** to install.
 
-### .msi packages \(Bronze\)
+They might install files outside the install folder, they might just plain old don't work, they make users wait because of their typically long install times, etc.
+
+### .msi packages \([Bronze tier](#bronze-tier)\)
 
 Most MSI files can be installed fine, as long as you don't do anything funky in the install scripts. So don't!
 
 **Please **don't use those - bronze tier is not a good tier.
 
-### InnoSetup installers \(Bronze\)
+### InnoSetup installers \([Bronze tier](#bronze-tier)\)
 
 Installation is performed silently and to the correct install folder. Uninstallation is handled properly as well.
 
 Still, **please **don't use those - bronze tier is not a good tier.
 
-### Nullsoft / NSIS installers \(Bronze\)
+### Nullsoft / NSIS installers \([Bronze tier](#bronze-tier)\)
 
 Installation is performed silently and to the correct install folder. Uninstallation is handled properly as well.
 
@@ -145,19 +149,19 @@ We don't plan to support these because of one or more of the following reasons:
 * The format cannot be installed to a single folder in a portable manner
 * The format is a sin
 
-### .deb and .rpm packages \(Oh no\)
+### .deb and .rpm packages \([Oh no tier](#oh-no-tier)\)
 
 These are ignored when looking for uploads - it'll appear as if your app wasn't available on Linux at all.
 
 **Do not use these.**
 
-### .pkg packages \(Oh no\)
+### .pkg packages \([Oh no tier](#oh-no-tier)\)
 
 These are dialog-based, can have scripts, can ask for your password, don't let you specify install folders.
 
 **Do not use these.**
 
-### Literally any other installer type \(Oh no\)
+### Literally any other installer type \([Oh no tier](#oh-no-tier)\)
 
 Here's a non-exhaustive list of installer creators we don't support:
 
