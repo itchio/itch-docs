@@ -1,24 +1,21 @@
-
-itch follows the [Redux][] design pattern — to understand the rest of this page,
+itch follows the [Redux](http://redux.js.org/index.html) design pattern — to understand the rest of this page,  
 you need to be familiar with it. The basics are as follows:
 
-  * All state is stored in a single place (the store)
-  * All change happens via actions, that are dispatched by the store, to:
-    * Reducers, which compute new state from the old state and the action
-    * Reactors which are used in itch to apply side-effects
-  * The UI is rendered directly from the state
-
-[Redux]: http://redux.js.org/index.html
+* All state is stored in a single place \(the store\)
+* All change happens via actions, that are dispatched by the store, to:
+  * Reducers, which compute new state from the old state and the action
+  * Reactors which are used in itch to apply side-effects
+* The UI is rendered directly from the state
 
 ## Separate processes
 
 Electron apps are a bit peculiar, because they have two types of processes:
 
-  * A single node.js process, that lives throughout the application's runtime
-  * Renderer processes, one per browser window (or web contents, really)
+* A single node.js process, that lives throughout the application's runtime
+* Renderer processes, one per browser window \(or web contents, really\)
 
-Thanks to Electron's `node-integration`, both of these can `require()` the same
-modules — but they're different copies, being executed by different JavaScript
+Thanks to Electron's `node-integration`, both of these can `require()` the same  
+modules — but they're different copies, being executed by different JavaScript  
 runtimes, completely isolated, so if you have a module like this:
 
 ```JavaScript
@@ -43,8 +40,8 @@ require('./my-module').prop === 'initial'
 
 ## RPC
 
-One way to communicate between the browser process and renderer processes
-is Electron's `remote` module, which gives you a reference to the remote version
+One way to communicate between the browser process and renderer processes  
+is Electron's `remote` module, which gives you a reference to the remote version  
 of a module. To continue on our example above:
 
 ```JavaScript
@@ -53,23 +50,13 @@ var remote = require('electron').remote
 remote.require('./my-module').prop = 'renderer'
 ```
 
-RPC (Remote Procedure Call) is implemented under-the-hood with a special kind
-of JavaScript objects, which react to 'reading/writing properties' and calling
-methods by sending a synchronous IPC (Inter-Process Communication) call to the
-other process, and then waiting for the response.
+RPC \(Remote Procedure Call\) is implemented under-the-hood with a special kind of JavaScript objects, which react to 'reading/writing properties' and calling methods by sending a synchronous IPC \(Inter-Process Communication\) call to the other process, and then waiting for the response.
 
-This is fine for one-off calls on occasion, but isn't suitable for continuous
-data transfer throughout the application's lifecycle, as blocking both processes
-on every call is a serious performance penalty.
+This is fine for one-off calls on occasion, but isn't suitable for continuous data transfer throughout the application's lifecycle, as blocking both processes on every call is a serious performance penalty.
 
-*It gets worse: imagine traversing a large object hierarchy — every field access
-results in a blocking IPC call.* One can mitigate this by serializing the object
-hierarchy to JSON and sending that over, in a single call. Depending on the size
-of the object to be sent, though (all the application state, for example), it might
+_It gets worse: imagine traversing a large object hierarchy — every field access results in a blocking IPC call._ One can mitigate this by serializing the object hierarchy to JSON and sending that over, in a single call. Depending on the size of the object to be sent, though \(all the application state, for example\), it might
 
 ## Data architecture
-
-
 
 ```
                                     ||
@@ -104,3 +91,6 @@ interact with |                     ||                    | render to
                                     ||    things that cross it are JSON
                                     ||    payloads sent asynchronously via IPC
 ```
+
+
+

@@ -53,8 +53,6 @@ In **chrome** we have all the UI code, based on React.
 
 Each side has a redux store, the **metal** store is the reference, and the other store\(s\) are synchronized by sending inter-process messages, which is done transparently by [redux-electron-store](https://github.com/fasterthanlime/ftl-redux-electron-store).
 
-For more on the dual-process nature of Electron apps, read the [Data flow](data-flow.md) page.
-
 ## Chrome Developer Tools
 
 Press `Shift-F12` to open the Chrome Developer Tools, to inspect the DOM, run arbitrary javascript code in the **chrome** side of the app, etc.
