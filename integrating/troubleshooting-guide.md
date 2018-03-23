@@ -37,6 +37,14 @@ This should let you evaluate whether it's more likely that:
 * The itch.io app is at fault
   * In which case don't untick the checkbox, we'll take a look at your report!
 
+### Something's wrong with my HTML5 game
+
+Press `Shift+F12` to open up the Chrome Developer Tools, and see what went wrong.
+
+Enter `navigator.appVersion` then press Enter in the Console to check what version of Chrome your itch.io app is shipping with.
+
+![](/assets/html5-devtools.png)
+
 ### It says it's still running, but I closed the game / application!
 
 On Windows 8 and up, the itch app will wait for the entire process tree to quit. If it says it's still running, _something_ hasn't exited yet. You can use force close to kill it, but with great power comes great responsibility.
