@@ -27,8 +27,8 @@ The butler tool:
 Save a cloud, use butler to push your builds. We spent way too much time making it lovable.
 
 > If you're not using butler, your game will probably still work, but most importantly, **your users won't get upgrades**.
->
-> To learn more about the workflows that the itch.io app plays well with, read the Compatibility policy page.
+
+To learn more about the workflows that the itch.io app plays well with, read the [Compatibility policy](/integrating/compatibility-policy.md) page.
 
 ## Tag your uploads
 
@@ -38,44 +38,17 @@ For each upload, tick the appropriate checkbox so the app knows what to install 
 
 ## Keep it simple, or ship a manifest
 
-The surest way to get your game working first try in the app is to  
-ship an [app manifest](./manifest.md). It will tell the app how to launch  
-your game, and will even let you specify secondary actions, and even integrate  
-into the itch.io API.
+If you have a single top-level executable \(Windows\), or .app file \(macOS\), or binary or shell script \(Linux\), then things should **Just Work**.
 
-**When no manifest is found**, the app tries to mimic a human when launching a game.  
-The general rule is: the top-most executable wins. If you are also distributing  
-a level editor, etc., you really should ship an [app manifest](./manifest.md)  
-to let your players choose.
+If your game:
 
-Additionally:
+* Requires libraries like Visual C++ Redistributable, DirectX, XNA, etc.
+* Has multiple launch targets \(Game, Editor, Manual, etc.\)
+* Integrates with the [itch.io API](https://itch.io/docs/api/overview).
 
-* The app can tell the difference between Linux, Mac OS, and Windows
-  executables — which allows you to distribute all three in a single archive.
-* The app will set the executable bit on every binary it can find before
-  attempting to launch the game, salvaging badly-zipped archives.
-* The app actively avoids files containing strings resembling `uninstall`
-* The app will prefer shell scripts to binaries on Linux \(allowing you to
-  set up the `LD_LIBRARY_PATH` correctly, for example\)
+Then **you'll need an **[**app manifest**](/integrating/manifest.md).
 
-## Use simple archive formats
-
-The ideal way is to let itch.io archive your game for you by directly  
-uploading a folder using the [butler](https://itch.io/docs/butler) command-line upload tool.
-
-As an added bonus, uploading with [butler](https://itch.io/docs/butler) lets  
-your players update in a quick and easy way \(the app will download small patches  
-instead of re-downloading the entire game\).
-
-The app will also happily install archives uploaded directly from the itch.io  
-web interface: .zip, .7z, .tar.gz, .tar.bz2, .dmg, even .rar.
-
-Some installer formats are supported on Windows, but we [advise against using them](https://github.com/itchio/itch/issues/671),  
-if you can help it. In time, [app manifests](./manifest.md) will let you do  
-things like install prerequisites, which you would normally need an installer for.
-
-**TL;DR: **[**butler**](https://itch.io/docs/butler)** &gt; archives &gt; installers &gt; nothing**  
-\(where `>` means 'is better than'\)
+> Don't be scared. There's examples and a validation tool. You'll see, it's nice.
 
 ## Test your games
 
