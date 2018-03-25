@@ -3,7 +3,7 @@ These environment variables will change the behavior of the app:
 * `DEVTOOLS=1` — start with Chromium Devtools open — useful when something goes
   wrong before the `F12` binding becomes available.
 * `ITCH_LOG_LEVEL=debug` — see `logger/index` for available levels - defaults to "info"
-* `DEBUG=buse:*` — show all debug messages related to communicating with the butler service.
+* `DEBUG=butlerd:*` — show all debug messages related to communicating with the butler daemon.
 * `MARCO_POLO=1` — dumps all redux events being dispatched throughout the app. We attempt to filter that but **please pay extra care to any logs you post publicly** to make sure you're not leaking your own credentials.
 * `IMMEDIATE_NOSE_DIVE=1` - open dev tools before launching html games
 * `UP_TO_SCRATCH=1` - force update checks, even in development environment
