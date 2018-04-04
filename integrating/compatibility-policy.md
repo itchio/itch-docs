@@ -1,5 +1,15 @@
 # Compatibility policy
 
+> Attention all:
+>
+> **Are you here because** **a game doesn't work? **Feel free to post a link to this page in the game's comment section, letting the developers know you'd like to play their game using the itch.io app.
+>
+> They'll be able to fix the issue and archive the comment in time.
+>
+> Please apply **kindness and patience **generously.
+>
+> The rest of this page is addressed to developers in particular - and curious folks in general.
+
 This guide describes the _ideal way_ to publish software on itch.io, ie. **Platinum tier** level of support.
 
 But it's cold out there in the real world, and on an open platform, life happens, and they stray from The Good Workflow. Nevertheless, the app tries its best to _get anything it can to run_, within certain rules.
@@ -19,6 +29,8 @@ Builds pushed with [butler](https://itch.io/docs/butler) are **Platinum tier**, 
 * Uninstalls are near-instantaneous.
 
 All you have to do for _all this_ to work is simply to **use **[**butler**](https://itch.io/docs/butler)** to push your builds**.
+
+We have a [Quick start guide](/integrating/quickstart.md) and specific guides for [Windows builds](/integrating/platforms/windows.md), for [Linux builds](/integrating/platforms/linux.md), for [macOS builds](/integrating/platforms/macos.md), and for [HTML5 games](/integrating/platforms/web.md).
 
 ### ...but I need an installer!
 
