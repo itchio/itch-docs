@@ -17,7 +17,7 @@ The packages we publish are digitally signed, so that you can ensure that we are
 To allow your package manager to verify those signatures, you need to import our GPG key. You can do so by running the following command in a terminal:
 
 ```bash
-curl https://dl.itch.ovh/archive.key | sudo apt-key add -
+wget -O - https://dl.itch.ovh/archive.key | sudo apt-key add -
 ```
 
 This will prompt for your password, since `sudo` is used.
@@ -28,6 +28,10 @@ Then, either use [Ubuntu's graphical tools](https://help.ubuntu.com/community/Re
 or run one of the following group of commands in your terminal:
 
 ```bash
+# For Ubuntu 18.04
+ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb xenial main"
+echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list
+
 # For Ubuntu 17.10
 ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb artful main"
 echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list
