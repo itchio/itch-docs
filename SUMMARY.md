@@ -21,6 +21,7 @@
   * [Downloading games](using/downloading.md)
     * [Install locations](using/install-locations.md)
     * [Collections](using/collections.md)
+  * [Known Issues](installing/known-issues.md)
 * [Game developer guide](integrating/README.md)
   * [Quick start](integrating/quickstart.md)
     * [Windows builds](integrating/platforms/windows.md)
