@@ -41,12 +41,9 @@ There are three environments in which the app can run: `development`, `test`, an
 
 ## App structure
 
-Electron apps have two sides:
+The **main** process is the first process when itch is started. It's basically a node.js runtime.
 
-* what happens in the `node.js` process, which we call **main**
-* what happens in the `Chromium` processes, which we call **renderer**
-
-The **main** process is the first process when itch is started. In main, we:
+In main, we:
 
 * Read preferences from disk
 * Set up proxy settings
@@ -56,15 +53,18 @@ The **main** process is the first process when itch is started. In main, we:
 * Create native windows
 * Maintain the canonical version of the app state.
 
-Each native window _conceptually _has its own **renderer** process.
+Each native window _conceptually_ has its own **renderer** process, which is basically a Chromium process \(but with node.js integration\).
 
-we deal with OS windows, OS notifications, installing the app's components \(like butler and itch-setup\), and maintaining a canonical version of the app state.
+\(In reality, they're separate execution contexts that all live in the same process\). In the renderer process, we:
 
-In **renderer** we have all the UI code, based on React.
+* Render all the app's UI
+* Including webviews
+* Make remote procedure calls to the butler daemon to fetch data
+* etc.
 
-Each side has a redux store, the **main** store is the reference, and the other store\(s\) are synchronized by sending inter-process messages, which is done transparently by [redux-electron-store](https://github.com/fasterthanlime/ftl-redux-electron-store).
+All processes have a redux store, the **main** store is the reference, and the other stores are synchronized by sending inter-process messages, which is done transparently by [redux-electron-store](https://github.com/fasterthanlime/ftl-redux-electron-store).
 
-## Chrome Developer Tools
+## Chrome Developer Tools \(renderer\)
 
 Press `Shift-F12` to open the Chrome Developer Tools, to inspect the DOM, run arbitrary javascript code in the **chrome** side of the app, etc.
 
@@ -77,17 +77,39 @@ you can `export DEVTOOLS=1` before starting the app so that they open as early a
 
 > See [Environment variables](/developing/environment-variables.md) for a list of useful ones.
 
+## Chrome Developer Tools \(main\)
+
+In development, the app serves a debugging interface on port 9222.
+
+If you open a `chrome://inspect` tab in Google Chrome, it should show up under **Remote Target \(\#LOCALHOST\)**. \(If it doesn't, you can add it manually\).
+
+You can use those to step through code in the **main** process. This is particularly useful if an exception is thrown, but you don't know exactly why.
+
+This works on release builds too:
+
+* Launch itch with `itch --inspect-brk=9222`
+* Open `chrome://inspect` as a tab in Google Chrome
+* Check the "Pause on exceptions" button \(top right\)
+* Evaluate `global.require = require` if you're planning on requiring stuff
+  * Note: modules that are bundled by webpack can't be required this way
+  * Note: the store is assigned to `global.ReduxStore`, so you can easily `getState()` or `dispatch()`
+* Resume execution
+
+Note that pausing in the developer tools will freeze the whole app, so your OS might complain it's unresponsive.
+
 ## Compiling
 
 TypeScript sources and static assets live in `src`. They're compiled and bundled by [webpack](https://webpack.js.org/).
 
 In development, files are recompiled automatically and the chrome side is served over HTTP.
 
+* `npm start` is not black magic, it just runs `develop.js` - feel free to look into it
+
 In production, they're precompiled and packaged so that a lot of development dependencies are not included in the final builds.
 
 ### Hot module reload
 
-When the app is started in developent, it watches for file changes, and reloads parts of itself automatically. This mostly applies to the **chrome** side of the app, components in particular.
+When the app is started in developent, it watches for file changes, and reloads parts of itself automatically. This mostly applies to the **renderer** side of the app, React components in particular.
 
 By having your code editor and the app open side to side, you can quickly iterate on the looks of a React component.
 
