@@ -43,15 +43,26 @@ There are three environments in which the app can run: `development`, `test`, an
 
 Electron apps have two sides:
 
-* what happens in the `node.js` process, which we call **metal**
-* what happens in the `chromium` processes, which we call **chrome**
+* what happens in the `node.js` process, which we call **main**
+* what happens in the `Chromium` processes, which we call **renderer**
 
-In **metal** we have filesystem operations, executing external  
-binaries, showing native notifications, and so on.
+The **main** process is the first process when itch is started. In main, we:
 
-In **chrome** we have all the UI code, based on React.
+* Read preferences from disk
+* Set up proxy settings
+* Set up the `itch://` protocol
+* Install/update components like `butler` and `itch-setup` if needed
+* Create the tray icon
+* Create native windows
+* Maintain the canonical version of the app state.
 
-Each side has a redux store, the **metal** store is the reference, and the other store\(s\) are synchronized by sending inter-process messages, which is done transparently by [redux-electron-store](https://github.com/fasterthanlime/ftl-redux-electron-store).
+Each native window _conceptually _has its own **renderer** process.
+
+we deal with OS windows, OS notifications, installing the app's components \(like butler and itch-setup\), and maintaining a canonical version of the app state.
+
+In **renderer** we have all the UI code, based on React.
+
+Each side has a redux store, the **main** store is the reference, and the other store\(s\) are synchronized by sending inter-process messages, which is done transparently by [redux-electron-store](https://github.com/fasterthanlime/ftl-redux-electron-store).
 
 ## Chrome Developer Tools
 
@@ -68,7 +79,7 @@ you can `export DEVTOOLS=1` before starting the app so that they open as early a
 
 ## Compiling
 
-TypeScript sources and static assets live in `src`. They're compiled and bundled by [parcel](https://parceljs.org/).
+TypeScript sources and static assets live in `src`. They're compiled and bundled by [webpack](https://webpack.js.org/).
 
 In development, files are recompiled automatically and the chrome side is served over HTTP.
 
@@ -80,10 +91,6 @@ When the app is started in developent, it watches for file changes, and reloads 
 
 By having your code editor and the app open side to side, you can quickly iterate on the looks of a React component.
 
-### The .cache folder
-
-If you tune `src/init.js` to change some parcel parameters, you may have to remove the `.cache` folder. If you're feeling paranoid, you can also wipe `app`, and `dist`.
-
 ## Code style
 
 We use [prettier](https://www.npmjs.com/package/prettier) to make sure the codebase has a consistent style.
@@ -92,23 +99,6 @@ There's a pre-commit hook that formats staged files. It's powered by husky and [
 for the configuration.
 
 Some text editors have plug-ins for prettier, which can help you format on save. There are workspace settings for the [Visual Studio Code prettier plug-in](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) in the repository.
-
-### Logging
-
-Each module for which it makes sense to have a certain amount of logging  
-\(for example, detailing the install process of a game, etc.\) should get its  
-own child logger, like so:
-
-```typescript
-import rootLogger from "../logger";
-const logger = rootLogger.child({ name: "my-cool-module" });
-
-// then, later in the code
-logger.error("This shows up in red");
-logger.warn("This shows up in yellow");
-logger.info("This shows up in white");
-logger.debug("This only prints if export ITCH_LOG_LEVEL=debug");
-```
 
 ### Asynchronous code
 
@@ -139,20 +129,17 @@ async function installSoftware (name: string) {
 }
 ```
 
-In development, async/await code is transformed using babel to bluebird promises,  
-which in turn uses coroutines and has long stack traces support.
+In development, async/await code is transformed using babel to bluebird promises, which in turn uses coroutines and has long stack traces support.
 
-This lets us dive into issues that involve several promises awaiting each  
-other. In production, they're left as-is, since both Node and Chrome now  
-support async/await.
+This lets us dive into issues that involve several promises awaiting each other. In production, they're left as-is, since both Node and Chrome now support async/await.
 
 ### React components
 
 React components are TypeScript classes that extend `React.PureComponent`. All components are pure components, never extend `React.Component` instead.
 
-We have our own `connect` flavor that does state mapping and actionCreators mapping \(grep it to find out how it works\).
+We have a `hook` function that allows writing fully type-checked connected components \(it uses redux's `connect` under the hood\).
 
-Look at `src/components/basics/` for simple examples.
+Look at `src/renderer/basics/` for simple examples.
 
 ### Styled components \(CSS\)
 
