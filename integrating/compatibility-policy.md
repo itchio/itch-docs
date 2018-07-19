@@ -75,7 +75,13 @@ In fact, we like it so much it's the de-facto storage format for builds pushed w
 We support everything in ISO/IEC 21320-1:2015, along with some extensions:
 
 * LZMA-compressed entries[^7]
-* Shift-JIS filenames \(typically Japanese games\)
+
+If the app encounters .zip files with characters that are:
+
+* Non-ASCII
+* Not utf8-encoded either
+
+...then it'll refuse to install the .zip.
 
 ### .rar archives \([Gold tier](#gold-tier)\)
 
