@@ -1,80 +1,35 @@
 # Installing itch on Ubuntu & Debian
 
-While you can simply head to [https://itch.io/app](https://itch.io/app) and grab the latest .deb, we recommend you add our package repository instead, so that the app can remain up-to-date.
+These instructions apply to itch v25 and up.
 
-## Adding our APT repository
+> If you have an older version of the app installed, uninstall it before
+> following those instructions.
 
-We publish .deb packages of every release on Bintray:
+Simply head to [https://itch.io/app](https://itch.io/app) and grab the Linux installer.
 
-* [https://bintray.com/itchio/deb](https://bintray.com/itchio/deb)
+## Installing
 
-_Note: on Debian, you may need to _`sudo apt-get install apt-transport-https`_ before you follow the rest of this guide_
+Run `chmod +x itch-setup && ./itch-setup` (or use your file manager
+to set the executable bit and double-click it).
 
-### Importing our GPG key
+You'll need GTK3 installed (`libgtk-3-0` package on most Debians).
 
-The packages we publish are digitally signed, so that you can ensure that we are the ones that published it, and no one else.
+The latest version of itch downloads and installs to `~/.itch`. After
+a successful installation, itch starts up.
 
-To allow your package manager to verify those signatures, you need to import our GPG key. You can do so by running the following command in a terminal:
+## Updating
 
-```bash
-wget -O - https://dl.itch.ovh/archive.key | sudo apt-key add -
-```
+When a new version of the app becomes available, "A new version is available"
+shows up in the top right corner.
 
-This will prompt for your password, since `sudo` is used.
-
-### Adding to your sources.list.d
-
-Then, either use [Ubuntu's graphical tools](https://help.ubuntu.com/community/Repositories/Ubuntu#Adding_Other_Repositories) to add our repository,  
-or run one of the following group of commands in your terminal:
-
-```bash
-# For Ubuntu 18.04
-ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb xenial main"
-echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list
-
-# For Ubuntu 17.10
-ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb artful main"
-echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list
-
-# For Ubuntu 16.04
-ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb xenial main"
-echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list
-
-# For Debian 8.x
-ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb jessie main"
-echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list
-
-# For Debian 7.x
-ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb wheezy main"
-echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list
-```
-
-When in doubt, you can use the `lsb_release -c` command \(from the `lsb-release` package\)  
-to print the codename of your Debian-based distribution.
-
-## Installing & updating
-
-If you have successfully added our package repository, installing should be as simple as  
-running `sudo apt-get update && sudo apt-get install itch` from a terminal.
-
-The package provides:
-
-* An applications menu shortcut \(via a .desktop file\)
-* The `/usr/bin/itch` launcher script, for command-line usage
-
-Refer to your distribution's manual to know how to keep packages up-to-date.
-
-  
-Most desktop environments have some sort of graphical interface to prompt you to install updates, and you can always run `sudo apt-get update && sudo apt-get upgrade` yourself in a terminal.
+Clicking it allows you to restart into the new version.
 
 ## Uninstalling
 
-Simply run `sudo apt-get remove itch` to uninstall itch from your system.
+Run `~/.itch/itch-setup --uninstall` to uninstall itch from your system.
 
 > Note that this won't remove your library, which resides at `$HOME/.config/itch`,  
 > along with any additional install locations you have added from the app.
 >
 > If you really want to uninstall everything, you'll have to take care of that folder as well.
-
-
 

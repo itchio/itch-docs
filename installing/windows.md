@@ -1,9 +1,7 @@
 # Installing itch on Windows
 
-* Download the latest version from [https://itch.io/app](https://itch.io/app)
-* Double-click the installer executable
-  * You should see a splash screen for a few seconds
-* The app starts up, desktop & start menu shortcuts are created
+  * Download the latest version from [https://itch.io/app](https://itch.io/app)
+  * Double-click the installer executable
 
 If you encounter any problems installing the app, get in touch with [itch.io support](https://itch.io/support).
 
@@ -39,16 +37,10 @@ We're working with Antivirus vendors to suppress these, but in the meantime, if 
 
 ## Updating
 
-The app's behavior when it comes to updating \(itself\) is:
+When a new version of the app becomes available, "A new version is available"
+shows up in the top right corner.
 
-* Checking for updates every 6 hours
-  * Or when manually asked to via the `Help -> Check for Updates` menu
-* When it finds an update, will download and apply it
-* At which point it'll prompt you to either:
-  * Restart the app to take advantage of the new version right now, or
-  * Snooze the update, and wait for the next time you restart the app yourself
-
-![](update-dialog.png)
+Clicking it allows you to restart into the new version.
 
 ## Uninstalling
 
