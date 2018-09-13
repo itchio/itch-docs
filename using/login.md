@@ -11,8 +11,6 @@ or even purchasing is possible on the _[https://itch.io](https://itch.io)_ websi
 
 You may have to fill in a captcha to complete the login procedure. This helps us keep the spammers at bay.
 
-![](/assets/captcha.png)
-
 > We're as annoyed by this as you are. Sorry :\(
 >
 > We know you're not a robot. Robots don't read the docs!

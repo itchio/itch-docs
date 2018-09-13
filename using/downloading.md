@@ -4,8 +4,7 @@ You can find games by using the in-app browser: it lets you access the entire it
 
 ![](/assets/itchio-website.png)
 
-Once on a game's page, use the **Install** button to download it. If you don't own the game, you'll see a **Purchase** button instead. If you have a press account and the creator has opted into the [itch.io press program](http://itch.io/press/application),  
-you'll see a **Review **button instead.
+Once on a game's page, use the **Install** button to download it. If you don't own the game, you'll see a **Purchase** button instead. If you have a press account and the creator has opted into the [itch.io press program](http://itch.io/press/application), you'll see a **Review **button instead.
 
 ![](/assets/game-tab.png)
 
@@ -18,6 +17,8 @@ The search bar will search all itch.io games and creators when online, along wit
 ## When a game doesn't work
 
 Sometimes, a game might fail to install or run properly on your system. The app detects this and sends us an automated report.
+
+![](/assets/cant-launch.png)
 
 It might be an app bug, a game bug, or a problem with your system, but regardless, we take a look at all reports.
 

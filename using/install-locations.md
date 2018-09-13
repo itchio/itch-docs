@@ -4,15 +4,14 @@ Install locations are folders that the itch app installs games to. The initial i
 
 _That's why games aren't installed to _`Program Files`_ on Windows. As a rule, the app can be installed and used without ever asking for Administrator privileges, except for _[_sandbox setup_](sandbox.md)_ or third-party installers._
 
-## Changing the default install location
+## Adding another install location
 
-![](/assets/install-location-set-default.png)
+Click the "Manage install locations" button in the Preferences window, then click the "Add install location" button:
 
-To change the location games are installed to, add a new one by clicking the **Add location** button, then click on the hamburger menu and pick **Make default**.
+![](/assets/install-location-add.png)
 
-This menu also lets you remove an install location, or open it in a tab to see which games are installed:
+Whenever you install a game in the app, it will ask you where to install it.
 
-![](/assets/install-locations-contents.png)
+(By default, it will pick the location you last installed to)
 
-
-
+![](/assets/plan-install.png)
