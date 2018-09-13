@@ -8,11 +8,6 @@ Its intended audience includes:
 * Game and application developers publishing to itch.io
 * Contributors to the app \([it's open-source!](https://github.com/itchio/itch)\)
 
-**This document describes the bleeding-edge version of the app.**  
-If you're looking for documentation on the latest stable release, you can read it at:
-
-* [itch v23 docs](http://docs.itch.ovh/itch/v23.6.1/index.html)
-
 ## Contributing to this book
 
 If you find a typo, a factual inaccuracy, or an important caveat not covered in  
