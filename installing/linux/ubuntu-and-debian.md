@@ -1,35 +1,5 @@
 # Installing itch on Ubuntu & Debian
 
-These instructions apply to itch v25 and up.
+As of v25, itch comes with its own installer and self-updater.
 
-> If you have an older version of the app installed, uninstall it before
-> following those instructions.
-
-Simply head to [https://itch.io/app](https://itch.io/app) and grab the Linux installer.
-
-## Installing
-
-Run `chmod +x itch-setup && ./itch-setup` (or use your file manager
-to set the executable bit and double-click it).
-
-You'll need GTK3 installed (`libgtk-3-0` package on most Debians).
-
-The latest version of itch downloads and installs to `~/.itch`. After
-a successful installation, itch starts up.
-
-## Updating
-
-When a new version of the app becomes available, "A new version is available"
-shows up in the top right corner.
-
-Clicking it allows you to restart into the new version.
-
-## Uninstalling
-
-Run `~/.itch/itch-setup --uninstall` to uninstall itch from your system.
-
-> Note that this won't remove your library, which resides at `$HOME/.config/itch`,  
-> along with any additional install locations you have added from the app.
->
-> If you really want to uninstall everything, you'll have to take care of that folder as well.
-
+For more information, see the [Installing on linux](/installing/linux/README.md) page.
