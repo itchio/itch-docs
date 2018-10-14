@@ -92,6 +92,32 @@ args = ["--that", "--is", "--a", "lot=of-arguments"]
 
 For HTML5 games, arguments are available as `Itch.args` \(`Itch` being added to the global scope, usually `window` \).
 
+### Platforms
+
+The `platform` field can be used to limit a manifest entry to apply only to a specific operating system. This feature is quite useful in conjunction with `args`, due to Windows and Unix using different conventions for command-line arguments. Valid values are "`windows`" for Windows, "`osx`" for OS X / macOS, "`linux`" for Linux, and "`unknown`" if the platform cannot be determined.
+
+Sample manifest:
+
+```toml
+[[actions]]
+name = "A lot of arguments"
+path = "sample.exe"
+platform = "windows"
+args = ["/t", "/i", "/a", "/l=of-arguments"]
+
+[[actions]]
+name = "A lot of arguments"
+path = "sample.app"
+platform = "osx"
+args = ["--that", "--is", "--a", "lot=of-arguments"]
+
+[[actions]]
+name = "A lot of arguments"
+path = "sample"
+platform = "linux"
+args = ["--that", "--is", "--a", "lot=of-arguments"]
+```
+
 ### API key & scoping
 
 Games can ask for an itch.io API key by setting the `scope` parameter.
