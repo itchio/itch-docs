@@ -4,19 +4,21 @@
 ## One-time setup
 
 For sandboxing to work, the itch app needs to create a new account named
-`itch-player`, by running the following commands:
+`itch-player`, by running the following commands in PowerShell:
 
 ```bat
 net user itch-player salt /add
 net localgroup Users itch-player /delete
+mkdir C:\Users\itch-player
+net user itch-player /homedir:C:\Users\itch-player
 ```
 
 The first command adds the `itch-player` user with a known password, and
 the second command removes it from the `Users` group so that it doesn't
-appear on the login screen.
+appear on the login screen. The third creates a home directory for itch-player. 
+The final command sets the directory as the home directory for 'itch-player'.
 
-As a result, the `C:\Users\itch-player` folder will be created, and that's
-where game saves will go.
+
 
 ## Troubleshooting
 
