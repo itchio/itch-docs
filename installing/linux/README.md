@@ -5,7 +5,8 @@ These instructions apply to itch v25 and up.
 > If you have an older version of the app installed, uninstall it before
 > following those instructions.
 
-Simply head to [https://itch.io/app](https://itch.io/app) and grab the Linux installer.
+Simply head to [https://itch.io/app](https://itch.io/app) and grab the Linux installer. 
+It can also be obtained via wget 'wget http://nuts.itch.zone/download/linux' 
 
 ## Installing
 
