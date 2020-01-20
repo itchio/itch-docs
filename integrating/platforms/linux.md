@@ -135,6 +135,12 @@ bins/plant64: error while loading shared libraries: libSDL2-2.0.so.0: cannot ope
 
 The same advice applies to most `libGL*.so` libraries — don't bundle your own graphic card's drivers!
 
+### Automatically copying needed libraries
+
+If you're looking for an automated solution to the previous steps, you can use the [`copydeps`](https://github.com/suve/copydeps) tool to identify and copy all of your application's dependencies.
+
+**Note:** While `copydeps` can save you the labour of manually finding and copying the shared object files, it's still heavily recommended to verify if the application runs correctly and whether you're not bundling any excessive libraries.
+
 ### Building on older systems for maximum compatibility
 
 As a developer, you might be running the latest and greatest version of your Linux distribution - but your players might not.
