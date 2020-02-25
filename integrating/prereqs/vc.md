@@ -3,6 +3,11 @@
 
 The following versions of the Visual C++ Runtime are available:
 
+## 2019
+
+  * `vcredist-2019-x86`: Microsoft Visual C++ 2015-2019 Redistributable (x86)
+  * `vcredist-2019-x64`: Microsoft Visual C++ 2015-2019 Redistributable (x64)
+
 ## 2017
 
   * `vcredist-2017-x86`: Microsoft Visual C++ 2017 Redistributable Update 3 (x86)
