@@ -5,7 +5,7 @@ stages:
 book:
   stage: build
   tags:
-    - dropsy
+    - linux
   script:
     - npm install --no-save babel-cli babel-preset-es2017
     - mkdir -p release-for-old-nodes
