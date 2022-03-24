@@ -1,17 +1,32 @@
-#!/usr/bin/env node
+//@ts-check
+"use strict";
 
-// generate latest documentation for itch using gitbook
-// and deploy it to google cloud storage.
-
-const $ = require("./common");
+const { cd, $, $$ } = require("@itchio/bob");
 
 async function main() {
-  await $.showVersions(["npm", "node"]);
-  $(await $.npmDep("gitbook", "gitbook-cli"));
+  $(`npm version`);
+  $(`npm install -g gitbook-cli`);
 
-  $(await $.npm("install"));
-  $(await $.sh("gitbook build"));
-  $(await $.gcp(`_book/* gs://docs.itch.ovh/itch/${$.buildRefName()}`));
+  if (process.env.CI) {
+    // cf. https://github.com/GitbookIO/gitbook-cli/issues/110#issuecomment-669640662
+    let npm_prefix = $$(`npm config get prefix`).trim();
+    await cd(
+      `${npm_prefix}/lib/node_modules/gitbook-cli/node_modules/npm/node_modules`,
+      async () => {
+        $(`npm install graceful-fs@4.1.4 --save`);
+      }
+    );
+  }
+
+  $(`gitbook install`);
+  $(`gitbook build`);
+
+  if (process.env.CI_BUILD_REF_NAME) {
+    console.warn(`gsutil -m cp -r -a public-read _book/* gs://docs.itch.ovh/itch/${process.env.CI_BUILD_REF_NAME}/`)
+    // $(`gsutil -m cp -r -a public-read _book/* gs://docs.itch.ovh/itch/${process.env.CI_BUILD_REF_NAME}/`);
+  } else {
+    console.warn("Skipping uploading book, no CI_BUILD_REF_NAME environment variable set")
+  }
 }
 
 main();
