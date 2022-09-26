@@ -6,7 +6,7 @@ The app will attempt to detect your system settings \(Windows, Linux, macOS, etc
 
 For example, if your HTTP\(S\) proxy is running locally, on port 8081, you would set the value of `HTTP_PROXY` to `localhost:8081`.
 
-_Here's a guide to to _[_setting an environment variable on Windows_](http://www.computerhope.com/issues/ch000549.htm)
+Here's a guide to [_setting an environment variable on Windows_](http://www.computerhope.com/issues/ch000549.htm)
 
 The preferences tab will show if any proxy settings are active, and where it got them from \(system or environment\). When setting an environment variable, you need to restart the app \(`Ctrl+Q`, `Command+Q` on macOS, then relaunch\) for it to take effect.
 
