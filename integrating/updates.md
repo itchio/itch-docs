@@ -8,7 +8,7 @@ it gets downloaded and installed immediately. Otherwise, the user is prompted
 to pick from a list.
 
 For updates, the same logic applies: if the user had to pick between multiple
-alternatives, the app will ask them to pick again whenew files are available.
+alternatives, the app will ask them to pick again when new files are available.
 
 Otherwise, it'll update automatically to the newer version of the only
 candidate.
@@ -44,7 +44,7 @@ For now, when uploading a new file on itch.io:
     for a while.
 
 Needless to say, this process isn't ideal for often-updated games, and we
-recommand using [butler](https://itch.io/docs/butler) instead.
+recommend using [butler](https://itch.io/docs/butler) instead.
 
 ## How an update is applied
 
