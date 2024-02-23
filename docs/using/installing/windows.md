@@ -5,7 +5,7 @@
 
 If you encounter any problems installing the app, get in touch with [itch.io support](https://itch.io/support).
 
-### Verifying the installer
+## Verifying the installer
 
 All our installers, along with the application itself, are digitally signed with a certificate to the name of **itch corp**.
 
@@ -17,7 +17,7 @@ _Open this dialog by right-clicking the installer, and choosing 'Properties'._
 >
 > \(Even the [canary version](./canary.md) is digitally signed with the same certificate.\)
 
-### Antivirus software
+## Antivirus software
 
 We often release new version of the itch.io app or the components it depends on.
 
@@ -53,6 +53,3 @@ For older Windows versions, use the Control Panel as usual.
 > Note: uninstalling the itch.io app does not wipe the `%APPDATA%\itch` folder, which contains all your installed games, local database, web session data and cache, and so on.
 >
 > If you really want to delete it all, you'll need to take care of that folder too.
-
-
-

@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'itch.io-app'
-copyright = '2024, @fasterthanlime, @leafo, @suve, @retropipes, @aaronfranke on GitHub'
-author = '@fasterthanlime, @leafo, @suve, @retropipes, @aaronfranke on GitHub'
+project = 'Itch.io App'
+copyright = '2024, Amos Wenger, [leafo](https://github.com/leafo) and the community on GitHub'
+author = 'Amos Wenger, [leafo](https://github.com/leafo) and the community on GitHub'
 release = '0.1'
 
 # -- General configuration ---------------------------------------------------
@@ -26,3 +26,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'furo'
 html_static_path = ['_static']
+html_title = "Itch.io App"
+
+html_theme_options = {
+    "light_css_variables": {
+        "color-brand-primary": "#8E3737",
+        "color-brand-content": "#8E3737",
+    },
+    "dark_css_variables": {
+        "color-brand-primary": "#ea4d4d",
+        "color-brand-content": "#ea4d4d",
+    },
+}

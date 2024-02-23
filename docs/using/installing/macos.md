@@ -10,7 +10,7 @@ Note: before v25, itch used to install in `/Applications/itch.app`. It now insta
 per-user, in `~/Applications/itch.app`. You might want to remove the former before
 (or after) installing itch v25.
 
-### Verifying the app
+## Verifying the app
 
 All our OSX binaries are signed by a Developer ID certificate to the name of [Amos Wenger](https://github.com/fasterthanlime), and you can verify them by running the following command in a terminal:
 

@@ -1,5 +1,14 @@
 # Installing on Linux
 
+```{toctree}
+:hidden:
+
+ubuntu-and-debian
+fedora
+archlinux
+gentoo
+```
+
 These instructions apply to itch v25 and up.
 
 > If you have an older version of the app installed, uninstall it before
@@ -39,4 +48,3 @@ Run `~/.itch/itch-setup --uninstall` to uninstall itch from your system.
 > along with any additional install locations you have added from the app.
 >
 > If you really want to uninstall everything, you'll have to take care of that folder as well.
-

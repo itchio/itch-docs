@@ -1,14 +1,22 @@
 # Installing itch
 
+```{toctree}
+:hidden:
+
+windows
+macos
+linux/README.md
+```
+
 You can download the latest version of the app from [https://itch.io/app](https://itch.io/app).
 
 Additionally, there are .deb and .rpm repositories, and AUR packages.
 
 To learn more, refer to:
 
-* [Installing on Windows](windows.md)
-* [Installing on macOS](macos.md)
-* [Installing on Linux](linux/README.md)
+* [Installing on Windows](windows)
+* [Installing on macOS](macos)
+* [Installing on Linux](linux/README)
 
 Release notes for all versions are available [on GitHub](https://github.com/itchio/itch/releases).
 
