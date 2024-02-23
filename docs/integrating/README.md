@@ -1,4 +1,3 @@
-
 # Game developer guide
 
 This chapter describes how to distribute software that can be installed
@@ -11,3 +10,16 @@ for creators willing to go the extra mile when integrating with it.
 *Note: even though the word 'game' is used throughout this guide, it applies
 equally to other kinds of software. Games just happen to be the most popular
 kind of software installed with the app!*
+
+
+```{toctree}
+quickstart
+manifest/validating-your-manifest
+updates
+manifest
+manifest-actions
+prereqs/README
+api/README
+compatibility-policy
+troubleshooting-guide
+```

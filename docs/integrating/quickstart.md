@@ -1,5 +1,14 @@
 # Game developer quick start
 
+```{toctree}
+:hidden:
+
+platforms/windows
+platforms/macos
+platforms/linux
+platforms/web
+```
+
 Chances are, your software already works with [the itch.io app](https://itch.io/app).
 
 But **keep reading!** This page also contains best practices.

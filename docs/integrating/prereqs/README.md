@@ -1,5 +1,14 @@
 # Prerequisites
 
+```{toctree}
+:hidden:
+
+prereqs/vc
+prereqs/dotnet
+prereqs/xna
+prereqs/dx
+```
+
 Since we encourage developers to ship [portable builds](../platforms/windows.md), the app supports installing frameworks or libraries your game might depend on.
 
 Here's how it looks for users:

@@ -10,7 +10,7 @@ If you need an [app manifest](/integrating/manifest.md), put your .app and the m
 
 > If you really _really_ want to do something else, read the [Compatibility policy](/integrating/compatibility-policy.md) page.
 
-### ...but I don't have an app bundle
+## ...but I don't have an app bundle
 
 App bundles are directories with a standardized structure and some metadata in an `Info.plist` file.
 
@@ -38,4 +38,3 @@ We've taken several measures to ensure this works properly:
 For players that are **not **using the itch.io app, you might get reports of your app being "Damaged and can't be opened" and that it should "be moved to the trash".
 
 Player who do use the itch.io app do not encounter these issues, so you may want to encourage them to use it.
-

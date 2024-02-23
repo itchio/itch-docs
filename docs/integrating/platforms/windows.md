@@ -29,4 +29,3 @@ However, you'll also have to figure out exactly what libraries you need to ship.
 Tools like [Dependency Walker](http://www.dependencywalker.com/) or [Process Monitor](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) can help.[^1]
 
 [^1]: In fact, anything from [Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads/process-utilities) is heartily recommended. If you're not using them, you should be. Nevermind what for - download first, justify second.
-

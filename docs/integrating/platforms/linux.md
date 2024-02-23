@@ -205,4 +205,3 @@ _Special thanks to Ethan Lee for proofreading this page and contributing advice.
 See the Acknowledgements section of this book for a full list of contributors._
 
 [^1]: If they can't, get a better publisher.
-

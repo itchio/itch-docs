@@ -14,19 +14,18 @@ Like the website, it will look for an `index.html` file \(or a top-level `.html`
 
 You can use `Shift+F12` to open the developer toosl, see [Troubleshooting](/integrating/troubleshooting-guide.md) for more details.
 
-### Fullscreen support
+## Fullscreen support
 
 HTML5 games launched with the app can be switched to fullscreen and their window can be resized, so make sure your CSS handles that properly.
 
-### Java applets
+## Java applets
 
 Java applets are not supported by the itch.io app.
 
-### Flash games
+## Flash games
 
 Flash games are not supported by the itch.io app.
 
-### Legacy Unity plug-in games
+## Legacy Unity plug-in games
 
 Legacy Unity plug-in games are not supported by the itch.io app. Use the **WebGL export** option instead.
-
