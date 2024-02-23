@@ -1,7 +1,6 @@
-
 # DirectX
 
-### June 2010
+## June 2010
 
   * `dx-june-2010`: DirectX End-User Runtime (June 2010)
 

@@ -1,4 +1,3 @@
-
 # XNA Framework
 
 The following versions of the XNA Framework are available:

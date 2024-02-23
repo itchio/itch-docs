@@ -1,4 +1,3 @@
-
 # Contributor guide
 
 Since itch is open-source, and we maintain it actively, anyone can contribute

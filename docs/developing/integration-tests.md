@@ -8,7 +8,7 @@ They make sure that all of the code, together, makes meaningful interactions hap
 
 The app is tested as a whole using a homegrown golang runner that speaks webdriver to the app.
 
-### Running integration tests
+## Running integration tests
 
 It looks deceptively simple:
 
@@ -22,7 +22,7 @@ If you're an itch.io employee, poke Amos about it to get set up. If you're not, 
 
 We'll take care of that part!
 
-### Writing an integration test
+## Writing an integration test
 
 Scenarios live in `integration-tests`, along with some support code that makes it all tick. They're also explicitly listed in `integration-tests/main.go`.
 
@@ -30,6 +30,3 @@ These resources can be useful:
 
 * The [webdriver API docs](http://webdriver.io/api.html)
 * Existing tests!
-
-
-

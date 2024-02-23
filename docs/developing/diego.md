@@ -1,4 +1,3 @@
-
 # diego
 
 diego is our diagnostics mercenary: it attempts to dump information about the

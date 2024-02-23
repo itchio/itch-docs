@@ -3,10 +3,10 @@
 ```{toctree}
 :hidden:
 
-prereqs/vc
-prereqs/dotnet
-prereqs/xna
-prereqs/dx
+vc
+dotnet
+xna
+dx
 ```
 
 Since we encourage developers to ship [portable builds](../platforms/windows.md), the app supports installing frameworks or libraries your game might depend on.
@@ -57,4 +57,3 @@ Each category of prerequisite has its own page:
 If your game needs a prerequisite that's not on the list, please [open an issue](https://github.com/itchio/itch/issues/new) so we can add it to our repository.
 
 Please consult the list of [requested prerequisites](https://github.com/itchio/itch/labels/prereqs) first to avoid opening duplicate requests!
-

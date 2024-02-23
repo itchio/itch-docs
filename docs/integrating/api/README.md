@@ -19,4 +19,3 @@ by users who have purchased a legitimate copy of your game, and to all press use
 ## Getting started
 
 For more information, refer to the **API key** part of the [Manifest actions](/integrating/manifest-actions.md) page.
-

@@ -1,4 +1,3 @@
-
 # Visual C++ Runtime
 
 The following versions of the Visual C++ Runtime are available:

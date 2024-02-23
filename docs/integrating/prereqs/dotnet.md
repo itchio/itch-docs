@@ -1,4 +1,3 @@
-
 # .NET Framework
 
   * `net-4.6.2`: Microsoft .NET Framework 4.6.2

@@ -1,12 +1,14 @@
-## Setting up itch for development
+# Setting up itch for development
 
 itch is built in TypeScript and runs inside of Electron.
 
 To get started, install the latest [node.js](https://nodejs.org/)
 
-> Linux distributions tend to ship outdated node.js versions
->
-> Use the nodesource [binary distributions](https://github.com/nodesource/distributions/) to get an up-to-date one.
+```{caution}
+Linux distributions tend to ship outdated node.js versions
+
+Use the nodesource [binary distributions](https://github.com/nodesource/distributions/) to get an up-to-date one.
+```
 
 Then, clone the [https://github.com/itchio/itch](https://github.com/itchio/itch) repository somewhere.
 
@@ -16,7 +18,9 @@ Install the javascript dependencies by running this command from within the `itc
 $ npm install
 ```
 
-> For native modules, you'll need a compiler toolchain: Visual Studio 2015 on Windows, gcc/clang on Linux/macOS. See the [node-gyp](https://github.com/nodejs/node-gyp) page for more information on this.
+```{note}
+For native modules, you'll need a compiler toolchain: Visual Studio 2015 on Windows, gcc/clang on Linux/macOS. See the [node-gyp](https://github.com/nodejs/node-gyp) page for more information on this.
+```
 
 Finally, start the app!
 
@@ -179,4 +183,3 @@ We check the quality of the app's code by two kinds of tests:
 * [Integration Tests](integration-tests.md), which test interactions
 
 Check out the pages linked above to learn more about what their purpose is, when and how they're run, and how they're written.
-

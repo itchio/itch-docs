@@ -18,7 +18,7 @@ It is not possible to use the app anonymously at the moment, although downloadin
 
 You may have to fill in a captcha to complete the login procedure. This helps us keep the spammers at bay.
 
-```{hint}
+```{note}
 We're as annoyed by this as you are. Sorry 😞.
 
 We know you're not a robot. Robots don't read the docs!

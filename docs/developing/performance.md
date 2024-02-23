@@ -67,4 +67,3 @@ export GoodComponent extends React.PureComponent<any, any> {
 ```
 
 More details in [this medium article](https://medium.com/@esamatti/react-js-pure-render-performance-anti-pattern-fb88c101332f)
-

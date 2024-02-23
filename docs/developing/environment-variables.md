@@ -1,3 +1,5 @@
+# Environment Variables
+
 These environment variables will change the behavior of the app:
 
 * `DEVTOOLS=1` — start with Chromium Devtools open — useful when something goes
@@ -12,4 +14,3 @@ These environment variables will change the behavior of the app:
 * `ITCH_EMULATE_OFFLINE=1` - simulate a network outage. This only affects itch, not butler.
 
 See the [Performance hacking](/developing/performance.md) section for other environment variables that impact the app.
-
