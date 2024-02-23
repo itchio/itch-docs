@@ -1,5 +1,7 @@
 # The itch book
 
+<!-- start add-to-docs -->
+
 This book is a living documentation for [the itch.io app](https://itch.io/app).
 
 Its intended audience includes:
@@ -13,16 +15,9 @@ Its intended audience includes:
 If you find a typo, a factual inaccuracy, or an important caveat not covered in  
 this book, feel free to submit a pull request to the [GitHub repository](https://github.com/itchio/itch-docs).
 
+<!-- end add-to-docs -->
 
 ## Note to developer
 
-This book is build using the opensource
-[Gitbook](https://github.com/GitbookIO/gitbook-cli) tool. Sadly it's abandoned
-so building this file currently involves a little patch. See
-`release/ci-book.js`
-
-If you about to change something about the build process, make a new tag and
-push that first so we have a backup of the compiled output incase we need to
-roll back quickly. Tagged releases are pushed to separate folder on the docs
-bucket.
-
+This documentation is built using [Sphinx](https://github.com/sphinx-doc/sphinx).
+Creating the compiled output is as simple as running `make html` in the `docs` directory.
