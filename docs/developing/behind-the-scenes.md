@@ -6,5 +6,5 @@ This section describes a few things that are done behind the curtain so that the
 :hidden:
 
 continuous-deployment
-dependencies
+../using/installing/dependencies
 ```

@@ -1,4 +1,3 @@
-
 # The itch.io sandbox (for game developers)
 
 The itch.io sandbox tries to prevent several typical attacks
@@ -10,7 +9,7 @@ will:
     * On Linux, be more permissive about writes, but redirect them to a safe, per-game folder
   * On Windows, run games as a different, less-privileged user
 
-### Additional notes
+## Additional notes
 
 It shouldn't be possible to escape the sandbox by forking/spawning/execing.
 
@@ -21,7 +20,7 @@ The sandbox makes no attempts to protect against:
 It's not the answer to everything, but running games via the sandbox
 is much safer than not doing so.
 
-### Implementation
+## Implementation
 
 For implementation details, please refer to the following platform-specific pages:
 
