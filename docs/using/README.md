@@ -8,5 +8,9 @@ It only tries to describes the parts that are non-obvious from the interface.
 ```{toctree}
 :hidden:
 
-installing/README.md
+installing/README
+login
+preferences
+downloading
+installing/known-issues
 ```
