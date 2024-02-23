@@ -1,4 +1,3 @@
-
 # Windows sandboxing
 
 ## One-time setup

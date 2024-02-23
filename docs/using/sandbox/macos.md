@@ -1,4 +1,3 @@
-
 # macOS sandboxing
 
 The itch.io sandbox uses built-in macOS facility `sandbox-exec`.

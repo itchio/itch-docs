@@ -1,5 +1,13 @@
 # The itch.io sandbox
 
+```{toctree}
+:hidden:
+
+sandbox/windows
+sandbox/macos
+sandbox/linux
+```
+
 The itch.io sandbox tries to prevent several typical attacks a malicious game could run on a computer.
 
 For example, the sandbox will:
@@ -11,7 +19,7 @@ For example, the sandbox will:
 
 ## Scope
 
-Attacks that the itch.io sandbox try to prevent include:
+Attacks that the itch.io sandbox tries to prevent include:
 
 ### Stealing your itch.io credentials
 
@@ -41,6 +49,3 @@ For implementation details, please refer to the following platform-specific page
 * [Windows sandboxing](sandbox/windows.md)
 * [macOS sandboxing](sandbox/macos.md)
 * [Linux sandboxing](sandbox/linux.md)
-
-
-
