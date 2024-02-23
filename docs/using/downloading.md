@@ -1,5 +1,12 @@
 # Downloading games
 
+```{toctree}
+:hidden:
+
+install-locations
+collections
+```
+
 You can find games by using the in-app browser: it lets you access the entire itch.io website.
 
 ![](/assets/itchio-website.png)

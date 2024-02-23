@@ -2,7 +2,9 @@
 
 Install locations are folders that the itch app installs games to. The initial install location is in a folder your user has write access to without requiring administrator rights.
 
-_That's why games aren't installed to _`Program Files`_ on Windows. As a rule, the app can be installed and used without ever asking for Administrator privileges, except for _[_sandbox setup_](sandbox.md)_ or third-party installers._
+```{hint}
+That's why games aren't installed to _`Program Files`_ on Windows. As a rule, the app can be installed and used without ever asking for Administrator privileges, except for _[_sandbox setup_](sandbox.md)_ or third-party installers.
+```
 
 ## Adding another install location
 

@@ -7,4 +7,3 @@ In the **Collections** tab, you can see a list of your collections, which can be
 ## Editing collections from within the app
 
 ...is not yet possible. Although, you can click the **Add to collection **button from the in-game browser \(if the window is wide enough\), and you can access the [https://itch.io/my-collections](https://itch.io/my-collections) page.
-
