@@ -1,5 +1,15 @@
 # What you can do to help
 
+```{toctree}
+:hidden:
+
+getting-started
+unit-tests
+integration-tests
+environment-variables
+performance
+```
+
 If you like our work and want to help us make it even better, here are things you can do.
 
 ## Test games with the app

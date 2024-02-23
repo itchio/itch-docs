@@ -6,6 +6,3 @@ While this book is focused on the itch app, we felt like some subjects slightly 
 
 * [Acknowledgements](./acknowledgements.md)
 * [Building Linux software into a prefix](./building-into-a-prefix.md)
-
-
-
