@@ -1,5 +1,11 @@
 # Logging in
 
+```{toctree}
+:hidden:
+
+offline
+```
+
 The first time the app starts, it will ask you for your itch.io username \(or e-mail\) and password.
 
 ![](/assets/login.png)
@@ -28,4 +34,3 @@ You can log in with multiple user accounts from the itch app. Each profile has i
 ![](/assets/multiprofile.png)
 
 However, downloads and installed games are shared between all profiles.
-

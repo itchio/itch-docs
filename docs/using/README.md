@@ -9,7 +9,7 @@ It only tries to describes the parts that are non-obvious from the interface.
 :hidden:
 
 installing/README
-login
+login2
 preferences
 downloading
 installing/known-issues
