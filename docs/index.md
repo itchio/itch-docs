@@ -10,12 +10,10 @@ hide-toc: true
 ```
 
 ```{toctree}
-
-```
-
-```{toctree}
-:caption: Development
 :hidden:
 
+using/README.md
+integrating/README.md
 developing/README
+appendix/README.md
 ```
