@@ -1,0 +1,25 @@
+name: Deploy Sphinx documentation
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          pip install -r requirements.txt
+      - name: Build documentation
+        working-directory: docs
+        run: make html
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source: "docs/_build/html"
+          branch: gh-pages
