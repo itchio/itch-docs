@@ -17,7 +17,8 @@ this book, feel free to submit a pull request to the [GitHub repository](https:/
 
 <!-- end add-to-docs -->
 
-## Note to developer
+## Note to developers
 
-This documentation is built using [Sphinx](https://github.com/sphinx-doc/sphinx).
-Creating the compiled output is as simple as running `make html` in the `docs` directory.
+This documentation is built using [Sphinx](https://github.com/sphinx-doc/sphinx) which is using python.
+Activate a virtual environment with `.venv/Scripts/activate` and install the dependencies with `pip install -r requirements.txt`.
+Creating the compiled output then is as simple as running `make html` in the `docs` directory.
