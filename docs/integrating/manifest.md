@@ -39,8 +39,6 @@ The contents of the file must be valid [TOML markup](https://github.com/toml-lan
 
 Before you push a build with your manifest file, you can validate with the [butler](https://itch.io/docs/butler) `validate` command.
 
-Read the [Validating your manifest](#validating-your-manifest) section for more information.
-
 ## Prerequisites
 
 The itch.io app can ensure that certain libraries are installed before your app is launched.
@@ -77,7 +75,4 @@ args = ["--editor"]
 
 Read the [manifest actions](/integrating/manifest-actions.md) page to learn more about what you can do with those.
 
-### 
-
 [^1]: Keep it simple, you don't want players to have to scroll all the way down to pick the right action.
-

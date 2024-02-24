@@ -1,3 +1,8 @@
+---
+orphan: true
+---
+# Data Flow
+
 itch follows the [Redux](http://redux.js.org/index.html) design pattern — to understand the rest of this page,  
 you need to be familiar with it. The basics are as follows:
 
@@ -91,6 +96,3 @@ interact with |                     ||                    | render to
                                     ||    things that cross it are JSON
                                     ||    payloads sent asynchronously via IPC
 ```
-
-
-

@@ -1,3 +1,6 @@
+---
+orphan: true
+---
 # The itch.io sandbox (for game developers)
 
 The itch.io sandbox tries to prevent several typical attacks
@@ -24,6 +27,6 @@ is much safer than not doing so.
 
 For implementation details, please refer to the following platform-specific pages:
 
-  * [Windows sandboxing](sandbox/windows.md)
-  * [macOS sandboxing](sandbox/macos.md)
-  * [Linux sandboxing](sandbox/linux.md)
+  * [Windows sandboxing](../using/sandbox/windows.md)
+  * [macOS sandboxing](../using/sandbox/macos.md)
+  * [Linux sandboxing](../using/sandbox/linux.md)
