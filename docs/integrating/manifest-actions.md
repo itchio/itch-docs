@@ -17,9 +17,7 @@ name = "play"
 path = "Overland.exe"
 ```
 
-### 
-
-### Names
+## Names
 
 A few well-known names are supported:
 
@@ -48,7 +46,7 @@ name = "Gehen wir bereits!"
 
 _Note: the example manifest above describes just a single action, in three languages._
 
-### Paths
+## Paths
 
 Paths can either be:
 
@@ -77,7 +75,7 @@ name = "Discussion forum"
 path = "https://foo.itch.io/bar/community"
 ```
 
-### Arguments
+## Arguments
 
 The `args` field can be used to specify an array of arguments to pass to native executables.
 
@@ -92,7 +90,7 @@ args = ["--that", "--is", "--a", "lot=of-arguments"]
 
 For HTML5 games, arguments are available as `Itch.args` \(`Itch` being added to the global scope, usually `window` \).
 
-### Platforms
+## Platforms
 
 The `platform` field can be used to limit a manifest entry to apply only to a specific operating system. This feature is quite useful in conjunction with `args`, due to Windows and Unix using different conventions for command-line arguments. Valid values are "`windows`" for Windows, "`osx`" for OS X / macOS, "`linux`" for Linux, and "`unknown`" if the platform cannot be determined.
 
@@ -118,7 +116,7 @@ platform = "linux"
 args = ["--that", "--is", "--a", "lot=of-arguments"]
 ```
 
-### API key & scoping
+## API key & scoping
 
 Games can ask for an itch.io API key by setting the `scope` parameter.
 
@@ -141,7 +139,7 @@ When the `scope` parameter is set, the itch.io app sets the following **environm
 * `ITCHIO_API_KEY :`a game-specific, session-specific API key
 * `ITCHIO_API_KEY_EXPIRES_AT` the expiration date of the key, in iso-8601 format.
 
-#### Making requests with the API key
+### Making requests with the API key
 
 The itch.io API key provided to the game should be the value of an HTTP  
 header named `Authorization`.
@@ -159,7 +157,7 @@ needle.get('https://itch.io/api/1/jwt/me', opts, function (error, response) {
 })
 ```
 
-#### Accessing the API key in HTML5 games
+### Accessing the API key in HTML5 games
 
 The HTML5 environment doesn't grant access to environment variables by design,  
 so the itch app injects a global object named `Itch` into the JavaScript runtime.
@@ -177,7 +175,7 @@ if (typeof Itch === 'undefined') {
 
 XHR requests are normally limited to the host that served the javascript: in the case of the itch.io app, HTML5 games are served from a custom protocol, and _the same-origin policy is disabled_ so that your HTML5 game can make requests to the itch.io server or to your own server somewhere else.
 
-### Sandbox opt-in
+## Sandbox opt-in
 
 Adding `sandbox = true` to an action opts into [the itch.io sandbox](../using/sandbox.md).
 
@@ -194,7 +192,7 @@ path = "ProceduralChaos.exe"
 sandbox = true
 ```
 
-### Console / text-mode applications
+## Console / text-mode applications
 
 By default, the itch app redirects the standard output and standard error to  
 a log file on disk, which helps debugging when reports are sent.
@@ -211,9 +209,6 @@ console = true
 
 On Windows, it'll also open a new command line window to display the game into.
 
-> `console` is not yet supported on Linux and macOS
-
-
-
-
-
+```{attention}
+`console` is not yet supported on Linux and macOS
+```
