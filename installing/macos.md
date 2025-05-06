@@ -12,7 +12,7 @@ per-user, in `~/Applications/itch.app`. You might want to remove the former befo
 
 ### Verifying the app
 
-All our OSX binaries are signed by a Developer ID certificate to the name of [Amos Wenger](https://github.com/fasterthanlime), and you can verify them by running the following command in a terminal:
+All our OSX binaries are signed by a Developer ID certificate to the name of [itch corp.](https://github.com/itch.io), and you can verify them by running the following command in a terminal:
 
 ```bash
 spctl -a -vvvv ~/Applications/itch.app
@@ -23,7 +23,7 @@ spctl -a -vvvv ~/Applications/itch.app
 ```
 /Applications/itch.app: accepted
 source=Developer ID
-origin=Developer ID Application: Amos Wenger (B2N6FSRTPV)
+origin=Developer ID Application: itch corp. (AK2D34UDP2)
 ```
 
 ## Updating
