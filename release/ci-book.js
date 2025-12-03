@@ -1,30 +1,20 @@
 //@ts-check
 "use strict";
 
-const { cd, $, $$ } = require("@itchio/bob");
+const { execSync } = require("child_process");
 
-async function main() {
-  $(`npm version`);
-  $(`npm install -g gitbook-cli`);
+function $(cmd) {
+  console.log(`$ ${cmd}`);
+  execSync(cmd, { stdio: "inherit" });
+}
 
-  if (process.env.CI) {
-    // cf. https://github.com/GitbookIO/gitbook-cli/issues/110#issuecomment-669640662
-    let npm_prefix = $$(`npm config get prefix`).trim();
-    await cd(
-      `${npm_prefix}/lib/node_modules/gitbook-cli/node_modules/npm/node_modules`,
-      async () => {
-        $(`npm install graceful-fs@4.1.4 --save`);
-      }
-    );
-  }
-
-  $(`gitbook install`);
-  $(`gitbook build`);
+function main() {
+  $("npm run build");
 
   if (process.env.CI_BUILD_REF_NAME) {
     $(`gsutil -m cp -r -a public-read _book/* gs://docs.itch.ovh/itch/${process.env.CI_BUILD_REF_NAME}/`);
   } else {
-    console.warn("Skipping uploading book, no CI_BUILD_REF_NAME environment variable set")
+    console.warn("Skipping uploading book, no CI_BUILD_REF_NAME environment variable set");
   }
 }
 
