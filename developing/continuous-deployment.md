@@ -4,13 +4,13 @@ itch is continuously being built, tested, and deployed, to help us keep it high-
 
 To do so, we run our own instance of [GitLab CI](https://docs.gitlab.com/ce/ci/):
 
-* [https://git.itch.ovh](https://git.itch.ovh)
+* [https://git.itch.zone](https://git.itch.zone)
 
 ## Git mirroring
 
 Since the main repository for itch is [on GitHub](https://github.com/itchio/itch), and since GitLab CI will only build projects that are hosted on a GitLab instance, itch and associated projects have pages on our GitLab instance:
 
-* [https://git.itch.ovh/itchio/itch](https://git.itch.ovh/itchio/itch)
+* [https://git.itch.zone/itchio/itch](https://git.itch.zone/itchio/itch)
 
 Developers don't have to worry about the GitLab project page: they should clone the repository from the Github remote and push to it, as usual. The GitHub project has a webhook that POSTs a signed payload to a custom service, `git-mirror`, which fetches from Github and pushes to GitLab on-demand:
 
@@ -18,20 +18,9 @@ Developers don't have to worry about the GitLab project page: they should clone 
 
 ## Build scripts
 
-GitLab CI has a simple YAML configuration file, similar to Travis CI. Its format is detailed in the [GitLab CI](https://docs.gitlab.com/ce/ci/) documentation, and can be validated using the [CI lint](https://git.itch.ovh/ci/lint) page.
+GitLab CI has a simple YAML configuration file, similar to Travis CI. Its format is detailed in the [GitLab CI](https://docs.gitlab.com/ce/ci/) documentation, and can be validated using the [CI lint](https://git.itch.zone/ci/lint) page.
 
 itch's [CI config](https://github.com/itchio/itch/blob/master/.gitlab-ci.yml) is relatively straight-forward, most of the complexity lives in individual shell scripts in the `release/` directory.
-
-### Book generation
-
-The book you're reading right now is compiled from Markdown to HTML using [gitbook](https://www.npmjs.com/package/gitbook) on every commit.
-
-It is then uploaded to `https://docs.itch.ovh/itch/REF`, where `REF` is either  
-a branch, like `master`, or a tag, like `v0.14.0-canary`.
-
-As a result, the bleeding-edge version of this book is always available at:
-
-* [https://itch.io/docs/itch](https://itch.io/docs/itch)
 
 ### Unit tests & linting
 
@@ -93,12 +82,10 @@ Support/kitch`\).
 
 ![](itch-canary.png)
 
-It can be downloaded either:
+It can be downloaded from itch.io:
 
-* From the update server: [https://nuts-canary.itch.ovh/download](https://nuts-canary.itch.ovh/download)
-* Directly from the releases page: [https://github.com/itchio/kitch/releases](https://github.com/itchio/kitch/releases)
-
-_Note that releases appear out-of-order on the releases page, because GitHub associates them all with the same commit, since _`kitch`_ is actually an empty repository._
+* [https://itchio.itch.io/kitch-setup](https://itchio.itch.io/kitch-setup)
+* [https://itchio.itch.io/kitch](https://itchio.itch.io/kitch)
 
 Additionally:
 

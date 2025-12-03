@@ -10,7 +10,7 @@ There are several good reasons to include an app manifest with your game:
 
 > This documentation is more of a Guide than a Reference.
 >
-> If you just want the details, skip over to the [type definitions](http://docs.itch.ovh/butlerd/master/#/?id=manifest).
+> If you just want the details, skip over to the [type definitions](http://docs.itch.zone/butlerd/master/#/?id=manifest).
 
 ## Basics
 

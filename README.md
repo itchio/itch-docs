@@ -16,13 +16,19 @@ this book, feel free to submit a pull request to the [GitHub repository](https:/
 
 ## Note to developer
 
-This book is build using the opensource
-[Gitbook](https://github.com/GitbookIO/gitbook-cli) tool. Sadly it's abandoned
-so building this file currently involves a little patch. See
-`release/ci-book.js`
+This book is built using [Honkit](https://github.com/honkit/honkit).
 
-If you about to change something about the build process, make a new tag and
-push that first so we have a backup of the compiled output incase we need to
-roll back quickly. Tagged releases are pushed to separate folder on the docs
-bucket.
+Deployment happens automatically via GitLab CI when pushed to the GitLab
+mirror. Each ref (branch or tag) is deployed to Google Cloud Storage under
+`https://docs.itch.zone/itch/REF`, e.g. `master` or `v0.14.0`. It's recommended
+to push tags when there are significant changes to the book so that older
+versions may be referenced.
+
+The primary docs displayed at [`https://itch.io/docs/itch/` are proxied from
+the `master` deployment on Google Cloud Storage. To update the these docs push
+to GitLab's master branch.
+
+The `master` branch is also deployed to GitHub Pages for preview. Create tags
+for substantial versions of the app and book to preserve older versions for
+reference.
 

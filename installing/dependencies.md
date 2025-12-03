@@ -4,7 +4,7 @@ itch uses a few external tools to download & manage content.
 
 It installs and keeps them up-to-date automatically, which means you should never have to worry about them. However, in the interest of you knowing what runs on your computer, they're documented here.
 
-Everything is downloaded from our download server at `https://dl.itch.ovh`.
+Everything is downloaded from our download server at `https://dl.itch.zone`.
 
 Third-party programs are built from source. Home-grown programs are continuously built on our CI servers.
 

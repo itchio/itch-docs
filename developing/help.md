@@ -12,7 +12,7 @@ This might sound trivial, but just trying to play games using the app and sendin
 
 Although we commission professional translations when we can afford it, many languages available in the app are made possible by our [wonderful contributors](https://github.com/itchio/itch/graphs/contributors).
 
-You can get involved on our [Weblate translation server](https://weblate.itch.ovh/engage/itch/) easily. New accounts can only suggest translations and vote on suggestions. Most languages have a [translation manager](https://github.com/itchio/itch/issues/696) who has the power approve suggestions.
+You can get involved on our [Weblate translation server](https://weblate.itch.zone/engage/itch/) easily. New accounts can only suggest translations and vote on suggestions. Most languages have a [translation manager](https://github.com/itchio/itch/issues/696) who has the power approve suggestions.
 
 ## Contribute insight / help us test fixes
 
