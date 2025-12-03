@@ -18,8 +18,11 @@ You can get involved on our [Weblate translation server](https://weblate.itch.zo
 
 Most of the app's development actually happens on our very active [Github issue tracker](https://github.com/itchio/itch/issues).
 
-By creating a GitHub account, starring and watching the project, you can help by commenting with your own research - we regularly leave requests for feedback \(for example: "How does X behave on Windows 7? Are there Linux distributions without this command-line tool installed by default? Which graphics card are affected by  
-this driver bug?", etc.\)
+By creating a GitHub account, starring and watching the project, you can help
+by commenting with your own research - we regularly leave requests for feedback
+\(for example: "How does X behave on Windows 7? Are there Linux distributions
+without this command-line tool installed by default? Which graphics card are
+affected by  this driver bug?", etc.\)
 
 It requires a lot less effort than coding, but is just as useful, if not more.
 

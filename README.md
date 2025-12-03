@@ -10,11 +10,12 @@ Its intended audience includes:
 
 ## Contributing to this book
 
-If you find a typo, a factual inaccuracy, or an important caveat not covered in  
-this book, feel free to submit a pull request to the [GitHub repository](https://github.com/itchio/itch-docs).
+If you find a typo, a factual inaccuracy, or an important caveat not covered in
+this book, feel free to submit a pull request to the [GitHub
+repository](https://github.com/itchio/itch-docs).
 
 
-## Note to developer
+## Note to developers
 
 This book is built using [Honkit](https://github.com/honkit/honkit).
 
@@ -24,7 +25,7 @@ mirror. Each ref (branch or tag) is deployed to Google Cloud Storage under
 to push tags when there are significant changes to the book so that older
 versions may be referenced.
 
-The primary docs displayed at [`https://itch.io/docs/itch/` are proxied from
+The primary docs displayed at `https://itch.io/docs/itch/` are proxied from
 the `master` deployment on Google Cloud Storage. To update the these docs push
 to GitLab's master branch.
 
