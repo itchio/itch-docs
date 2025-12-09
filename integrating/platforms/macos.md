@@ -14,7 +14,36 @@ If you need an [app manifest](/integrating/manifest.md), put your .app and the m
 
 App bundles are directories with a standardized structure and some metadata in an `Info.plist` file.
 
-Here's a [good stackoverflow thread](http://stackoverflow.com/questions/1596945/building-osx-app-bundle) on how they're created. Good luck!
+A minimal app bundle structure looks like this:
+
+```
+MyGame.app/
+├── Contents/
+│   ├── Info.plist        # Required metadata (bundle ID, version, executable name)
+│   ├── MacOS/
+│   │   └── MyGame        # Your main executable
+│   └── Resources/
+│       └── MyGame.icns   # Your app icon (optional)
+```
+
+The `Info.plist` file is an XML file containing at minimum:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleExecutable</key>
+    <string>MyGame</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.yourcompany.mygame</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+</dict>
+</plist>
+```
+
+Most game engines and frameworks will generate this structure for you automatically.
 
 > Please don't push naked macOS binaries.
 >
@@ -31,7 +60,7 @@ We've taken several measures to ensure this works properly:
 * At launch time
   * the itch.io app fixes permissions if they're wrong.
 
-> If you don't use butler and upload an archive with wrong permissions, when players download and play your game without using the itch.io app, they'll encouter [Error -10810](http://www.thexlab.com/faqs/error-10810.html).
+> If you don't use butler and upload an archive with wrong permissions, when players download and play your game without using the itch.io app, they'll encounter **Error -10810**. This error means macOS cannot find or execute the application's main binary, typically because the executable permission bit was lost during archiving. To fix this, ensure your build process preserves Unix permissions, or use butler which handles this automatically.
 
 ## Gatekeeper & other security measures
 

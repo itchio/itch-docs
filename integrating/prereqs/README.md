@@ -45,6 +45,14 @@ Each category of prerequisite has its own page:
 * [XNA Framework](./xna.md)
 * [DirectX](./dx.md)
 
+To get the most up-to-date list of all available prerequisites, you can use the `butler test-prereqs` command:
+
+```bash
+butler test-prereqs
+```
+
+This will fetch the current registry and display all supported prerequisites with their names, architectures, descriptions, and versions.
+
 If your game needs a prerequisite that's not on the list, please [open an issue](https://github.com/itchio/itch/issues/new) so we can add it to our repository.
 
 Please consult the list of [requested prerequisites](https://github.com/itchio/itch/labels/prereqs) first to avoid opening duplicate requests!

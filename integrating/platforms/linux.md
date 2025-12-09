@@ -149,7 +149,13 @@ Binaries compiled on recent version of [Ubuntu](http://www.ubuntu.com/), for exa
 
 Part of the reason is the GLIBC version your executable is linked against. While bundling the dynamic libraries you use is relatively easy, linking against a different GLIBC version is a whole nother matter.
 
-You can use this helpful homegrown script, [glibc-check.sh](https://gist.github.com/fasterthanlime/17e002a8f5e0f189861c), to print the GLIBC versions required by a binary or a dynamic library. Here's its output when run against the example game mentioned above:
+You can check the GLIBC versions required by a binary with this one-liner:
+
+```bash
+objdump -T your_binary | grep GLIBC | sed 's/.*GLIBC_\([.0-9]*\).*/\1/g' | sort -u
+```
+
+For a more robust solution, see [glibc-check.sh](https://gist.github.com/fasterthanlime/17e002a8f5e0f189861c). Here's its output when run against the example game mentioned above:
 
 ```
 $ ./glibc-check.sh behindthefence/bins/plant64

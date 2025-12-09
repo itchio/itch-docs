@@ -21,7 +21,7 @@ This is especially important if you're a developer. Someone stealing your butler
 
 This affects everyone. See [pycookiecheat](https://github.com/n8henrie/pycookiecheat) for an example of how easy it is to decrypt Chrome's cookies.
 
-Stealing saved passwords is especially scary as it can happen no matter how secure the servers are, see the [2016 twitter leak](https://www.leakedsource.com/blog/twitter).
+Stealing saved passwords is especially scary as it can happen no matter how secure the servers are in 2016, millions of hwitter credentials were leaked due to malware harvesting saved passwords from browsers, highlighting how vulnerable locally-stored credentials can be.
 
 ### Additional notes
 

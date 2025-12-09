@@ -66,5 +66,5 @@ export GoodComponent extends React.PureComponent<any, any> {
 }
 ```
 
-More details in [this medium article](https://medium.com/@esamatti/react-js-pure-render-performance-anti-pattern-fb88c101332f)
+`PureComponent` uses shallow comparison in `shouldComponentUpdate`. If you pass a new object/array/function reference on every render, the comparison will always return false and trigger unnecessary re-renders. By using stable references (module-level constants, instance methods), you let React's pure rendering optimizations work properly.
 
