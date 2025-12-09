@@ -30,7 +30,7 @@
   * [Manifest actions](integrating/manifest-actions.md)
   * [Prerequisites](integrating/prereqs/README.md)
     * [Visual C++ Runtime](integrating/prereqs/vc.md)
-    * [.NET Framework](integrating/prereqs/dotnet.md)
+    * [.NET](integrating/prereqs/dotnet.md)
     * [XNA Framework](integrating/prereqs/xna.md)
     * [DirectX](integrating/prereqs/dx.md)
   * [API integration](integrating/api/README.md)

@@ -41,7 +41,7 @@ is launched, prerequisites will be verified, and if needed, downloaded and insta
 Each category of prerequisite has its own page:
 
 * [Visual C++ Runtime](./vc.md)
-* [.NET Framework](./dotnet.md)
+* [.NET](./dotnet.md)
 * [XNA Framework](./xna.md)
 * [DirectX](./dx.md)
 

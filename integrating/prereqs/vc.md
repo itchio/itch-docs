@@ -3,6 +3,13 @@
 
 The following versions of the Visual C++ Runtime are available:
 
+## Latest (v14)
+
+  * `vcredist-v14-x86`: Microsoft Visual C++ Redistributable v14 (x86)
+  * `vcredist-v14-x64`: Microsoft Visual C++ Redistributable v14 (x64)
+
+Note: The v14 redistributable is the latest unified version that covers Visual Studio 2015, 2017, 2019, 2022, and later. For new projects, prefer using vcredist-v14 over the year-specific versions.
+
 ## 2019
 
   * `vcredist-2019-x86`: Microsoft Visual C++ 2015-2019 Redistributable (x86)
