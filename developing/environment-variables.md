@@ -10,6 +10,8 @@ These environment variables will change the behavior of the app:
 * `PROFILE_REQUIRE=1` - profile how much time it takes to require modules
 * `ITCH_IGNORE_CERTIFICATE_ERRORS=1` - ignore certificate errors - USE WITH CARE only with debugging proxies that do SSL proxying
 * `ITCH_EMULATE_OFFLINE=1` - simulate a network outage. This only affects itch, not butler.
+* `BROTH_USE_LOCAL=butler` - use a local butler executable from your `PATH` instead of the bundled version. Useful for testing development versions of butler. You can specify multiple packages by comma-separating them (e.g., `BROTH_USE_LOCAL=butler,itch-setup`).
+* `BUTLERD_ENABLE_LOGGING=1` - enable verbose logging for the butler daemon.
 
 See the [Performance hacking](/developing/performance.md) section for other environment variables that impact the app.
 
