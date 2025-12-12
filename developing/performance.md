@@ -18,53 +18,55 @@ Get to know the tools. They're good.
 
 In short:
 
-* Only use `React.PureComponent`, always
-* For connected components, use reselect \(createStructuredSelector, createSelector\) in `mapStateToProps` \(grep the codebase for examples\)
-* Avoid `[]` or `{}` in `mapStateToProps`, do this instead:
+* Use `React.memo` to wrap your functional components. It serves the same purpose as `React.PureComponent` but for functional components, preventing unnecessary re-renders by using a shallow comparison of props.
+
+* For connected components, use hooks like `useSelector` from `react-redux` to listen only the least set of dependent values to avoid re-renders
 
 ```javascript
-const emptyObj = {};
-const emptyArr = [];
+import React, { memo } from 'react';
+import { useAppDispatch, useAppSelector } from "renderer/hooks/redux";
 
-export default connect(SomeComponent, {
-  state: createStructuredSelector({
-    // Don't do this!
-    baadValue: (state) => ((state.a || {}).b || [])[0];
-    // Do this instead:
-    goodValue: (state) => ((state.a || emptyObj).b || emptyArr)[0];
-  }),
-})
+const SomeComponent = () => {
+  const dispatch = useAppDispatch();
+  const appVersion = useAppSelector((rs) => rs.system.appVersion);
+
+  const handleButtonClick = useCallback(() => {
+    dispatch({ type: 'DO_SOMETHING' });
+  }, [dispatch]);
+
+  return <button onClick={handleButtonClick}>{appVersion}</button>;
+};
+
+export default memo(SomeComponent);
 ```
 
-* Anonymous functions or `this.something.bind(this)` create a new value every time, and will wreck `shouldComponentUpdate`.
+* Avoid using anonymous functions in render when passing into sub-components so that they make take advantage of memoization. Instead, use stable references with `useCallback` which will return a memoized version of the callback that only changes if one of the dependencies has changed.
 
 ```javascript
-export BadComponent extends React.PureComponent<any, any> {
-  doStuff () {
+import React, { memo, useCallback } from 'react';
+
+// Bad approach
+const BadComponent = memo(() => {
+  const doStuff = () => {
     // stuff.
-  }
+  };
 
-  render () {
-    // Don't! This generates a different closure for each render call
-    return <div onClick={() => this.doStuff()}/>
-    // Don't either! This also generates a different function on every render
-    return <div onClick={this.doStuff.bind(this)}/>
-  }
-}
+  // This will force MyComplexComponent to always re-render
+  return <MyComplexComponent onClick={doStuff}/>;
+});
 
-// Do this!
-export GoodComponent extends React.PureComponent<any, any> {
-  // In TypeScript, this is called an instance function
-  doStuff = () => {
+// Good practice
+const GoodComponent = memo(() => {
+  const doStuff = useCallback(() => {
     // stuff.
-  }
+  }, []); // Dependencies array
 
-  render () {
-    // `this.doStuff` stays the same, won't trigger unnecessary renders
-    return <div onClick={this.doStuff}/>
-  }
-}
+  // Memoized `doStuff` won't trigger unnecessary renders when GoodComponent is re-rerendered
+  return <div onClick={doStuff}/>;
+});
 ```
 
-`PureComponent` uses shallow comparison in `shouldComponentUpdate`. If you pass a new object/array/function reference on every render, the comparison will always return false and trigger unnecessary re-renders. By using stable references (module-level constants, instance methods), you let React's pure rendering optimizations work properly.
+By using hooks and keeping function references stable with `useCallback`, you
+allow React's memoization strategies to optimize your component rendering. This
+helps in performance gains by reducing unnecessary rendering.
 

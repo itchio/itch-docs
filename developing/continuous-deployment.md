@@ -27,7 +27,7 @@ On every commit, the CI executes all unit tests, and runs the TypeScript compile
 The building scripts run some common steps on every platform:
 
 * Compiling [TypeScript](https://www.typescriptlang.org/) code to ES2017, into several bundles
-* Copying some asset files \(vendor CSS/JS/images\)
+* Bundling static asset files
 
 ### Packaging
 
