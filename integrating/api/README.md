@@ -10,11 +10,9 @@ Combined with the rest of our [server-side API](https://itch.io/docs/api/servers
 * Retrieve user information \(such as their username, avatar, whether they have a press account, etc.\)
 * Get a proof of purchase
 
-For example, you might want your online play servers to be only accessible  
-by users who have purchased a legitimate copy of your game, and to all press users.
-
-> Note: our API offering will continue to expand over time. If you have particular needs  
-> for your game's release, don't hesitate to get in touch with us at [hello@itch.io](mailto:hello@itch.io)
+For example, you might want your online play servers to be only accessible  by
+users who have purchased a legitimate copy of your game, and to all press
+users.
 
 ## Getting started
 
