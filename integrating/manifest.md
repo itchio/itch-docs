@@ -1,83 +1,36 @@
 # App manifests
 
-There are several good reasons to include an app manifest with your game:
+App manifests are optional `.itch.toml` files placed at the top level of a build.
 
-* You want to provide a choice between multiple launch targets
-  * Examples: game, level editor, etc.
-* Your app needs access to [the itch.io API](https://itch.io/docs/api/overview), for authentication or more
+Use an app manifest when you want more control over how the itch app launches and prepares your software.
 
-"It launches the wrong thing" is usually a bad reason to ship a manifest, see [Troubleshooting](/integrating/troubleshooting-guide.md).
+A manifest can:
 
-> This documentation is more of a Guide than a Reference.
+* Define one or more launch actions (play, editor, docs, links, platform-specific actions, arguments, sandbox opt-in)
+* Request API scope so your app can receive a temporary itch.io API key
+* Declare prerequisites the app should install before launch (VC++, .NET, XNA, DirectX, etc.)
+
+"It launches the wrong thing" is usually a bad reason to ship a manifest. Read [Troubleshooting](/integrating/troubleshooting-guide.md) first.
+
+## Learn more
+
+* [Manifest actions](/integrating/manifest-actions.md)
+* [Prerequisites](/integrating/prereqs/README.md)
+* [Validating builds and manifests](/integrating/manifest/validating-your-manifest.md)
+
+> This documentation is a guide, not a full schema reference.
 >
-> If you just want the details, skip over to the [type definitions](http://docs.itch.zone/butlerd/master/#/?id=manifest).
+> If you want raw field definitions, see [butlerd manifest type definitions](http://docs.itch.zone/butlerd/master/#/?id=manifest).
 
-## Basics
+## Minimal example
 
-A manifest is a file named `.itch.toml` placed at the top level of your game directory.
-
-For example, the Windows build of a Unity game might be structured like this:
-
-```
-FooBar-windows/
-  FooBar.exe
-  FooBar_Data/
-  .itch.toml
-```
-
-The same application for macOS could have this structure:
-
-```
-FooBar-macOS/
-  FooBar.app/
-  .itch.toml
-```
-
-The contents of the file must be valid [TOML markup](https://github.com/toml-lang/toml).
-
-## Validating your manifest
-
-Before you push a build with your manifest file, you can validate with the [butler](https://itch.io/docs/butler) `validate` command.
-
-Read the [Validating your manifest](#validating-your-manifest) section for more information.
-
-## Prerequisites
-
-The itch.io app can ensure that certain libraries are installed before your app is launched.
-
-These typically include Microsoft Visual C++ Redistributables, DirectX, XNA, etc.
-
-This minimal manifest can be used for a 32-bit windows build that requires Visual C++ 2010:
-
-```toml
-[[prereqs]]
-name = "vcredist-2010-x86"
-```
-
-Read the [prerequisites documentation](./prereqs/README.md) to learn more.
-
-> If you're a command-line person, use the `butler test-prereqs` command to list known prerequisites.
->
-> You'll need [butler](https://itch.io/docs/butler) for that. Obviously.
-
-## Actions
-
-Manifests can contain between zero and "a few" options[^1]
+This minimal manifest defines one action and one prerequisite:
 
 ```toml
 [[actions]]
 name = "play"
 path = "FooBar.exe"
 
-[[actions]]
-name = "editor"
-path = "FooBar.exe"
-args = ["--editor"]
+[[prereqs]]
+name = "vcredist-2010-x86"
 ```
-
-Read the [manifest actions](/integrating/manifest-actions.md) page to learn more about what you can do with those.
-
-### 
-
-[^1]: Keep it simple, you don't want players to have to scroll all the way down to pick the right action.
-
