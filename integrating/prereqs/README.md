@@ -53,7 +53,6 @@ butler test-prereqs
 
 This will fetch the current registry and display all supported prerequisites with their names, architectures, descriptions, and versions.
 
-If your game needs a prerequisite that's not on the list, please [open an issue](https://github.com/itchio/itch/issues/new) so we can add it to our repository.
+All prerequisites are hosted at [broth.itch.zone/itch-redists](https://broth.itch.zone/itch-redists).
 
-Please consult the list of [requested prerequisites](https://github.com/itchio/itch/labels/prereqs) first to avoid opening duplicate requests!
-
+If your game needs a prerequisite that's not on the list, please [open an issue](https://github.com/itchio/itch-redists/issues/new) in the [itchio/itch-redists](https://github.com/itchio/itch-redists) repository.
