@@ -5,7 +5,7 @@ The [butler](https://itch.io/docs/butler) command-line tool can be used to valid
 It's a good way to make sure your software will be opened correctly by the itch.io app before you even push a build to itch.io.
 
 > The validate command returns a non-zero exit code if it detects serious problems.  
-> It's a good idea to integrate it into your Continuous Deployment pipeline \(Travis CI, Gitlab CI etc.\)!
+> It's a good idea to integrate it into your Continuous Deployment pipeline \(GitHub Actions, etc.\)!
 
 ## Validating build folders
 

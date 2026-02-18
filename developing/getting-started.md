@@ -136,10 +136,6 @@ Most of the CSS styles in the app are handled by
 
 This lets us handle theme switching, namespace and compose our styles easily.
 
-Some text editor plug-ins, like [styled-components for Visual Studio
-Code](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
-provide syntax highlighting for css blocks.
-
 ## Testing
 
 We check the quality of the app's code by two kinds of tests:

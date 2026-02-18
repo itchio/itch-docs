@@ -4,8 +4,6 @@ itch uses a few external tools to download & manage content.
 
 It installs and keeps them up-to-date automatically, which means you should never have to worry about them. However, in the interest of you knowing what runs on your computer, they're documented here.
 
-Everything is downloaded from our download server at `https://dl.itch.zone`.
-
 Third-party programs are built from source. Home-grown programs are continuously built on our CI servers.
 
 ## Directories
@@ -20,19 +18,21 @@ All dependencies are downloaded and extracted into the following folders:
 
 ### butler
 
-butler is a homemade \(itch.io-made\) command-line tool, distributed under the MIT license.
+butler is a homemade command-line tool written in Go, distributed under the MIT license.
 
-Its source code is available here, for you to audit, debug, and improve at will:
+It runs as a daemon process (butlerd) that communicates with the itch app via JSON-RPC 2.0 over TCP. butler handles downloading, installing, updating, and launching games, and maintains a SQLite database to track installation data.
+
+Its source code is available for you to audit, debug, and improve at will:
 
 * [https://github.com/itchio/butler](https://github.com/itchio/butler)
 
-Building your own version is as simple as running:
+### itch-setup
 
-```
-go get -v github.com/itchio/butler
-```
+itch-setup is a Go program that handles the initial installation of the itch app on all platforms. It also manages self-update checks and restarts the app when a new version is available.
 
-\(assuming you have Go 1.9+ installed on your system\)
+Its source code is available here:
+
+* [https://github.com/itchio/itch-setup](https://github.com/itchio/itch-setup)
 
 ## Implementation
 

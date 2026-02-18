@@ -19,17 +19,11 @@ repository](https://github.com/itchio/itch-docs).
 
 This book is built using [Honkit](https://github.com/honkit/honkit).
 
-Deployment happens automatically via GitLab CI when pushed to the GitLab
-mirror. Each ref (branch or tag) is deployed to Google Cloud Storage under
-`https://docs.itch.zone/itch/REF`, e.g. `master` or `v0.14.0`. It's recommended
-to push tags when there are significant changes to the book so that older
-versions may be referenced.
+Deployment happens automatically via GitHub Actions (`.github/workflows/docs.yml`) when pushed to the `master` branch. The docs are deployed to GitHub Pages.
 
 The primary docs displayed at `https://itch.io/docs/itch/` are proxied from
-the `master` deployment on Google Cloud Storage. To update the these docs push
-to GitLab's master branch.
+the GitHub Pages deployment. To update, push to the `master` branch.
 
-The `master` branch is also deployed to GitHub Pages for preview. Create tags
-for substantial versions of the app and book to preserve older versions for
-reference.
+Create tags for substantial versions of the app and book to preserve older
+versions for reference.
 
