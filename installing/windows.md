@@ -44,11 +44,9 @@ Clicking it allows you to restart into the new version.
 
 ## Uninstalling
 
-itch can be uninstalled from the **Apps & Features** section of the Windows 10 settings:
+itch can be uninstalled from the **Apps & Features** section of the Windows settings:
 
 ![](/assets/win10-uninstall.png)
-
-For older Windows versions, use the Control Panel as usual.
 
 > Note: uninstalling the itch.io app does not wipe the `%APPDATA%\itch` folder, which contains all your installed games, local database, web session data and cache, and so on.
 >

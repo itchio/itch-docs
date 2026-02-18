@@ -45,7 +45,7 @@ But in reality:
 
 All tiers below platinum have the following inconvenients:
 
-* **No automatic upgrades**. With different uploads, there's no way for the itch app to tell _for sure_ what needs to be upgraded to what, so it just doesn't update at all.[^4]
+* **No automatic upgrades**. With different uploads, there's no way for the itch app to tell _for sure_ what needs to be upgraded to what, so it just doesn't update at all.
 * **No integrity check** - it's reinstall or nothing.
 
 However, installs still don't require additional disk space, or administrator privileges, and uninstalls are instant.
@@ -207,8 +207,6 @@ Here's a non-exhaustive list of installer creators we don't support:
 [^2]: It's not trivial - you have to read the end of the file first. But that's what HTTP range requests are for.
 
 [^3]: There's a whole book to be written about our patching system - and it would be a good book, too! For now, let's stay humble and just mention that it routinely outperforms commercial patching solutions.
-
-[^4]: Versions of the itch.io app up to 23.x used to take guesses as to non-butler-uploads updates. It caused more problems than it solved, so that's no longer the case.
 
 [^5]: The actual sentiment is more along the lines of "everything else has significant drawbacks and no amount of GitHub comments would convince us otherwise at this point in time", but that doesn't roll off the tongue quite as easily.
 

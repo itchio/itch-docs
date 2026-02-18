@@ -4,9 +4,6 @@ itch is built in TypeScript and runs inside of Electron.
 
 To get started, ensure you have a modern version of [node.js](https://nodejs.org/) installed.
 
-> Linux distributions may ship outdated node.js versions
-> Use the nodesource [binary distributions](https://github.com/nodesource/distributions/) to get an up-to-date one.
-
 Then, clone the [https://github.com/itchio/itch](https://github.com/itchio/itch) repository somewhere.
 
 Install the javascript dependencies by running the following command from within the `itch` directory you've just cloned:
