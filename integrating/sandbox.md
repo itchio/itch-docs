@@ -7,7 +7,7 @@ will:
 
   * Limit what files a process can read
   * Limit what files a process can write to
-    * On Linux, be more permissive about writes, but redirect them to a safe, per-game folder
+    * On Linux, give games a persistent per-game home directory and restrict access to sensitive host files
   * On Windows, run games as a different, less-privileged user
 
 ### Additional notes
