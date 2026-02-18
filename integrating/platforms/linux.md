@@ -1,13 +1,11 @@
 # Distributing Linux builds
 
-Linux is a wonderful mess.
-
 Two simple steps:
 
 * Make a **portable build**
 * **Push it with **[**butler**](https://itch.io/docs/butler)
 
-> If you do something else \(please don't\), read the [Compatibility policy](/integrating/compatibility-policy.md) page.
+> For other approaches, see the [Compatibility policy](/integrating/compatibility-policy.md) page.
 
 ## Portable builds for common game engines \(Unity, etc.\)
 
@@ -17,13 +15,7 @@ For Unity in particular, you can use the 'Universal' export option that is simil
 
 ![](unity-linux-export.png)
 
-## Portable builds for busy folks
-
-If you aren't familiar with Linux at all, the most effective use of your resources might be to **let someone else handle it**. There is a lot of knowledge involved, and if you're not the tinkering type, a lot of frustration in store.
-
-Some people port games to Linux for a living — finding them online shouldn't be too hard. If you have a Publisher, they might be able to connect you to someone.[^1]
-
-## Portable builds the hard way
+## Portable builds
 
 If you're compiling binaries yourselves, either using a lower-level game engine, or coding your own, then you need to bundle the required libraries yourself.
 
@@ -31,35 +23,27 @@ This section describes one possible way to go about it - the details are up to y
 
 ### 1. Distribute a simple archive
 
-Don't use .deb, don't use .rpm, read [Compatibility policy](/integrating/compatibility-policy.md) if you feel like arguing with a static website, but mostly just don't.
+Use a simple archive rather than .deb or .rpm packages. See the [Compatibility policy](/integrating/compatibility-policy.md) for more details.
 
 Simply **put your assets, executables and libraries in a folder**, and push it with butler.
 
-### 2. Ship 32-bit binaries + 64-bit binaries
+### 2. Structure your build
 
-Unlike Windows, 64-bit installations of Linux might not be able to run 32-bit applications, at least not out-of-the-box.
-
-> If you have to pick just one, pick 64-bit.
-
-It's not that hard to ship both though, and here's one way to do it.
-
-Structure your game with separate folders, like so:
+Structure your game with separate folders for assets, binaries, and libraries:
 
 ```
 foobar-v1.0.0/
   foobar
   assets/
-  x86/
-    foobar.x86
+  lib/
     libbaz.so.2.1.3
-  x86_64/
+  bin/
     foobar.x86_64
-    libbaz.so.2.1.3
 ```
 
 _In the above, names ending with a _`/`_ are folders, whereas other names are files_
 
-The `assets` folder contains music, sound effects, textures, level data, whereas the `x86` and `x86_64` folders contains an executable along with the dynamic libraries it requires.
+The `assets` folder contains music, sound effects, textures, level data, whereas the `lib` folder contains the dynamic libraries your executable requires.
 
 The `foobar` file is a launcher script following this structure:
 
@@ -69,20 +53,10 @@ The `foobar` file is a launcher script following this structure:
 # Move to script's directory
 cd "`dirname "$0"`"
 
-# Get the kernel/architecture information
-ARCH=`uname -m`
-
-# Set the libpath and pick the proper binary
-if [ "$ARCH" == "x86_64" ]; then
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./x86_64/
-    ./x86_64/foobar.x86_64 $@
-else
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./x86/
-    ./x86/foobar.x86 $@
-fi
+# Set the libpath and run the binary
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./lib/
+./bin/foobar.x86_64 $@
 ```
-
-_This script is a simplified version of the _[_GameName.sh_](https://gist.github.com/flibitijibibo/5365145)_ by Ethan "flibitijibibo" Lee_
 
 ### Finding which libraries you need to include
 
@@ -141,13 +115,15 @@ If you're looking for an automated solution to the previous steps, you can use t
 
 **Note:** While `copydeps` can save you the labour of manually finding and copying the shared object files, it's still heavily recommended to verify if the application runs correctly and whether you're not bundling any excessive libraries.
 
-### Building on older systems for maximum compatibility
+### GLIBC compatibility
 
 As a developer, you might be running the latest and greatest version of your Linux distribution - but your players might not.
 
-Binaries compiled on recent version of [Ubuntu](http://www.ubuntu.com/), for example, might fail on older [Fedora](https://getfedora.org/) versions.
+Binaries compiled on recent version of [Ubuntu](http://www.ubuntu.com/), for example, might fail on older [Fedora](https://getfedora.org/) versions. This is often because of the GLIBC version your executable is linked against.
 
-Part of the reason is the GLIBC version your executable is linked against. While bundling the dynamic libraries you use is relatively easy, linking against a different GLIBC version is a whole nother matter.
+One way to avoid this problem entirely is to produce **fully static binaries** using [musl libc](https://musl.libc.org/) instead of GLIBC. Languages like Rust and Go have built-in support for static linking with musl, and you can also use [musl-cross](https://github.com/richfelker/musl-cross-make) toolchains for C/C++. Static binaries have no system library dependencies, so they'll run on virtually any Linux distribution.
+
+If static linking isn't an option, you'll want to target an older GLIBC version. While bundling the dynamic libraries you use is relatively easy, linking against a different GLIBC version is a whole other matter.
 
 You can check the GLIBC versions required by a binary with this one-liner:
 
@@ -169,25 +145,21 @@ By making sure that the GLIBC version your executable depends on is old enough, 
 
 #### Using virtual machines \(VM\)
 
-You can use a virtual machine provider like [VMWare Player](https://www.vmware.com/products/player), and have two Linux images, one 32-bit \(386\), and one 64-bit \(amd64\), so that you can produce both versions of your executables and all required libraries.
+You can use [QEMU](https://www.qemu.org/) \(or [virt-manager](https://virt-manager.org/) for a GUI\) with a Linux image to produce your executables and all required libraries.
 
-Take an old Debian \(7.x for example\), build your dependencies yourself in a prefix, and you'll be sure your game can run almost anywhere. You can refer to the [Building Linux software into a prefix](../../appendix/building-into-a-prefix.md ) appendix to learn more about how and why do it.
+Take an older Debian \(11 Bullseye, for example\), build your dependencies yourself in a prefix, and you'll be sure your game can run almost anywhere. You can refer to the [Building Linux software into a prefix](../../appendix/building-into-a-prefix.md ) appendix to learn more about how and why do it.
 
 #### Building in chroots
 
 chroots are \(in layman's terms\) a way to run a Linux distribution within a Linux distribution. Although they are harder to setup than just grabbing a VM image, they are also much lighter, since you don't need to emulate a whole x86 computer and dedicate a whole portion of your RAM to it.
 
-If you want to set up both a 64-bit and a 32-bit chroot of an older debian, for example, you'll need a 64-bit "host" \(a recent Ubuntu, for example\).
+If you want to set up a chroot of an older Debian, for example, you'll need a 64-bit host \(a recent Ubuntu, for example\).
 
 The [Debootstrap](https://wiki.debian.org/Debootstrap) family of tools is particularly helpful for setting debian chroots.
 
-#### Setting up your own build servers
+#### Using GitHub Actions with older runners
 
-It's not uncommon for medium-sized software to have its own build servers. Thanks to providers like [DigitalOcean](https://www.digitalocean.com/), it's not that costly either!
-
-VPS \(Virtual Private Servers\) are basically always-on virtual machines in the cloud, that you can rent for about 5 dollars a month. If you release new versions of your game often, it might be interesting for you to set up some sort of Continuous Deployment infrastructure
-
-See how [we deploy itch continuously](../../developing/continuous-deployment.md) for an example.
+[GitHub Actions](https://github.com/features/actions) lets you build on older Ubuntu LTS runners \(e.g. `ubuntu-22.04`\), which will link against an older GLIBC and improve compatibility with your players' systems. You can also set up a workflow to automatically push builds to itch.io with [butler](https://itch.io/docs/butler) on every release.
 
 ### 3. Get testers!
 
@@ -209,6 +181,4 @@ installation method in the itch app.
 
 _Special thanks to Ethan Lee for proofreading this page and contributing advice.  
 See the Acknowledgements section of this book for a full list of contributors._
-
-[^1]: If they can't, get a better publisher.
 

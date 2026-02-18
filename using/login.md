@@ -1,25 +1,12 @@
 # Logging in
 
-The first time the app starts, it will ask you for your itch.io username \(or e-mail\) and password.
+The first time the app starts, it will prompt you to log in by redirecting you to the itch.io website in your browser. You'll sign in to itch.io as usual (including any two-factor authentication you have enabled), then authorize the app to connect to your account via OAuth. Once authorized, the app will automatically complete the login.
 
-![](/assets/login.png)
+![](/assets/login-oauth.png)
 
-_Note: It is not possible to use the app anonymously at the moment, although downloading  
-or even purchasing is possible on the _[https://itch.io](https://itch.io)_ website without an account._
+A legacy username/password login flow is still available but will be removed in a future release.
 
-## Captcha
-
-You may have to fill in a captcha to complete the login procedure. This helps us keep the spammers at bay.
-
-> We're as annoyed by this as you are. Sorry :\(
->
-> We know you're not a robot. Robots don't read the docs!
-
-## Two-factor authentication
-
-If you have two-factor authentication enabled, the app will ask you for a one-time code.
-
-![](/assets/tfa.png)
+_Note: It is not possible to use the app anonymously at the moment, although downloading or even purchasing is possible on the [itch.io](https://itch.io) website without an account._
 
 ## Multiple profiles
 

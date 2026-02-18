@@ -14,12 +14,6 @@ For extra carefulness marks, [validate your build](/integrating/manifest/validat
 
 If your game depends the Visual C++ Runtime, .NET, XNA, DirectX, OpenAL etc., you'll need an [App manifest](/integrating/manifest.md).
 
-## When in doubt, ship a 32-bit build
-
-There's still 32-bit Windows installations around, and 32-bit Windows executables run on 64-bit Windows.
-
-> This is the exact opposite of our advice on Linux builds. Ah well.
-
 ## Homegrown engines
 
 If you're going with your own, custom game engine, one would think you have been punished enough.
