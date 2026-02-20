@@ -34,6 +34,17 @@ The sandbox makes no attempts to protect against:
 
 It's not the answer to everything, but running games via the sandbox safer than not doing so.
 
+## Save game access
+
+Some sandbox modes create isolated or simulated user directories for each game. For example, on Linux, each sandboxed game may get its own `$HOME` directory. This means:
+
+* Games running inside the sandbox won't see save files stored in your real home directory
+* Save files created inside the sandbox won't appear in your real home directory either
+
+**No data is deleted** when you change sandbox settings. Your save files still exist on disk, but the game may not be able to find them under the new configuration.
+
+If you switch between sandbox modes (or turn the sandbox on or off), you may need to manually copy or move save files between your real home directory and the sandboxed location. See the platform-specific pages below for details on where each sandbox type stores its data.
+
 ### Implementation
 
 For implementation details, please refer to the following platform-specific pages:
