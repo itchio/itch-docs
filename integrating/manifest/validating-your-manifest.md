@@ -85,7 +85,7 @@ Heuristics will be used to launch your project.
 
 If you want to validate just the manifest \(maybe before the build directory is generated\), you can do that too.
 
-Here's [Sample Evil App](https://github.com/fasterthanlime/sample-evil-app)'s manifest being validated:
+Here's [Sample Evil App](https://github.com/leafo/sample-evil-app)'s manifest being validated:
 
 ```
 $ butler validate .itch.toml

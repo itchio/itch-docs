@@ -61,7 +61,7 @@ Each native window _conceptually_ has its own **renderer** process, which is bas
 * Make remote procedure calls to the butler daemon to fetch data
 * etc.
 
-All processes have a redux store, the **main** store is the reference, and the other stores are synchronized by sending inter-process messages, which is done transparently by [redux-electron-store](https://github.com/fasterthanlime/ftl-redux-electron-store).
+All processes have a redux store, the **main** store is the reference, and the other stores are synchronized by sending actions across the process boundary, which is done transparently by [@goosewobbler/electron-redux](https://github.com/goosewobbler/electron-redux).
 
 ## Chrome Developer Tools \(renderer\)
 
