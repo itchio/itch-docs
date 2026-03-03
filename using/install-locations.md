@@ -15,3 +15,7 @@ Whenever you install a game in the app, it will ask you where to install it.
 (By default, it will pick the location you last installed to)
 
 ![](/assets/plan-install.png)
+
+## Scanning for games
+
+The app can also [scan your install locations](scan-install-locations.md) to find previously installed games that are no longer showing up in your library.
