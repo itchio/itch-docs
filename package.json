@@ -7,6 +7,6 @@
     "serve": "honkit serve"
   },
   "devDependencies": {
-    "honkit": "^6.1.4"
+    "honkit": "^6.1.7"
   }
 }
