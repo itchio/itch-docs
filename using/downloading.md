@@ -4,7 +4,7 @@ You can find games by using the in-app browser: it lets you access the entire it
 
 ![](/assets/itchio-website.png)
 
-Once on a game's page, use the **Install** button to download it. If you don't own the game, you'll see a **Purchase** button instead. If you have a press account and the creator has opted into the [itch.io press program](http://itch.io/press/application), you'll see a **Review **button instead.
+Once on a game's page, use the **Install** button to download it. If you don't own the game, you'll see a **Purchase** button instead. If you have a press account and the creator has opted into the [itch.io press program](https://itch.io/press/application), you'll see a **Review **button instead.
 
 ![](/assets/game-tab.png)
 

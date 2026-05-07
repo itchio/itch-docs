@@ -20,7 +20,7 @@ A manifest can:
 
 > This documentation is a guide, not a full schema reference.
 >
-> If you want raw field definitions, see [butlerd manifest type definitions](http://docs.itch.zone/butlerd/master/#/?id=manifest).
+> If you want raw field definitions, see [butlerd manifest type definitions](https://docs.itch.zone/butlerd/master/#/?id=manifest).
 
 ## Minimal example
 
