@@ -1,16 +1,18 @@
 # Syncing Translations (i18n)
 
-Translations for the itch app are managed in a separate repository and contributed via Weblate. To update the app with the latest translations, you need to sync from the external repo.
+Translations for the itch app are managed in a separate repository and contributed via Weblate. Syncing is bidirectional: the itch repo pushes new English keys out, and pulls every locale back in.
 
 ## How It Works
 
-Translations are stored in the [itch-i18n](https://github.com/itchio/itch-i18n) repository. Community members contribute translations through [Weblate](https://weblate.itch.zone), which commits changes to that repo.
+* **English** \(`src/static/locales/en.json`\) is the source of truth and lives in the itch repo. Add new strings here.
+* **All other locales** are translator output, edited via [Weblate](https://weblate.itch.zone/projects/itchio/), which commits to the [itch-i18n](https://github.com/itchio/itch-i18n) repo.
+* The sync script copies `en.json` into itch-i18n \(so Weblate picks up the new keys\), then wipes `src/static/locales/` and copies every locale back wholesale.
 
-The locale files (JSON) are copied into the itch app at `src/static/locales/`.
+> **Don't edit `af.json`, `ar.json`, etc. in either repo.** They're Weblate output and will be overwritten on the next sync.
 
-## Syncing Translations
+## Syncing
 
-Ensure you have the itch-i18n repository checked out alongside itch:
+Check out itch-i18n alongside itch:
 
 ```
 parent/
@@ -18,18 +20,19 @@ parent/
 └── itch-i18n/
 ```
 
-Then run the import script:
+Then run:
 
 ```bash
-node release/import-i18n-strings.js
+node release/sync-i18n-strings.js
 ```
 
-This deletes the existing `src/static/locales/` directory and copies the latest translations from `../itch-i18n/locales/`.
+This is **destructive**: it deletes `src/static/locales/` and writes to `../itch-i18n`. Don't run it casually. The conventional commit message after a sync is `sync translations`.
 
 ## When to Sync
 
-You should sync translations when:
+Run a sync when:
 
-- Preparing a new release
-- New translations have been added via Weblate
-- You want to test recent translation updates locally
+* You've added new English keys to `en.json` and want translators to see them
+* You're preparing a release and want to pull in the latest translator work
+
+Adding a new English string to `en.json` doesn't require an immediate sync. It'll be pushed out the next time someone runs the script, typically alongside a release.
