@@ -133,7 +133,7 @@ scope = "profile:me"
 
 Valid values for `scope`:
 
-* `profile:me`: grants access to `https://itch.io/api/1/jwt/me`
+* `profile:me`: grants access to `https://api.itch.io/profile`
 * \(This is the only valid scope for now\)
 
 When the `scope` parameter is set, the itch.io app sets the following **environment variables**:
@@ -146,17 +146,15 @@ When the `scope` parameter is set, the itch.io app sets the following **environm
 The itch.io API key provided to the game should be the value of an HTTP  
 header named `Authorization`.
 
-For example, using the JavaScript library `needle`, one would do:
+For example, using `fetch` in Node.js or the browser:
 
 ```javascript
 const apiKey = process.env.ITCHIO_API_KEY
 
-const opts = {
+const response = await fetch('https://api.itch.io/profile', {
   headers: { 'Authorization': apiKey }
-}
-needle.get('https://itch.io/api/1/jwt/me', opts, function (error, response) {
-  // deal with error, if any & process response
 })
+const profile = await response.json()
 ```
 
 #### Accessing the API key in HTML5 games
