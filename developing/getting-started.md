@@ -12,8 +12,9 @@ Install the javascript dependencies by running the following command from within
 $ npm install
 ```
 
-> For native modules, you'll need a compiler toolchain: Visual Studio 2015 on
-> Windows, gcc/clang on Linux/macOS. See the
+> For native modules, you'll need a compiler toolchain: a recent Visual Studio
+> (or Build Tools for Visual Studio) with the C++ workload on Windows,
+> gcc/clang on Linux/macOS. See the
 > [node-gyp](https://github.com/nodejs/node-gyp) page for more information on
 > this.
 
@@ -127,7 +128,7 @@ We have a `hook` function that allows writing fully type-checked connected compo
 
 Look at `src/renderer/basics/` for simple examples.
 
-> **Note:** We are in the proces of migrating to React Hooks and Functional Components. Use `React.memo` where possible.
+> **Note:** We are in the process of migrating to React Hooks and Functional Components. Use `React.memo` where possible.
 
 ### Styled components \(CSS\)
 
@@ -138,10 +139,5 @@ This lets us handle theme switching, namespace and compose our styles easily.
 
 ## Testing
 
-We check the quality of the app's code by two kinds of tests:
-
-* [Unit Tests](unit-tests.md), which test the code
-* [Integration Tests](integration-tests.md), which test interactions
-
-Check out the pages linked above to learn more about what their purpose is, when and how they're run, and how they're written.
+CI runs `npm run ts-check` on every commit to type-check the project. There are also [integration tests](integration-tests.md) that drive a packaged build via WebDriver to exercise user flows like login and game install.
 

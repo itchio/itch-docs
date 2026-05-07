@@ -39,7 +39,6 @@
 * [Contributor guide](developing/README.md)
   * [How you can help](developing/help.md)
   * [Getting started with the codebase](developing/getting-started.md)
-  * [Unit Tests](developing/unit-tests.md)
   * [Integration Tests](developing/integration-tests.md)
   * [Environment variables](developing/environment-variables.md)
   * [Performance hacking](developing/performance.md)

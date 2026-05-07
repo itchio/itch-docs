@@ -20,20 +20,19 @@ Most of the app's development actually happens on our very active [Github issue 
 
 By creating a GitHub account, starring and watching the project, you can help
 by commenting with your own research - we regularly leave requests for feedback
-\(for example: "How does X behave on Windows 7? Are there Linux distributions
-without this command-line tool installed by default? Which graphics card are
-affected by  this driver bug?", etc.\)
+\(for example: "How does X behave on this version of Windows? Are there Linux
+distributions without this command-line tool installed by default? Which
+graphics card are affected by this driver bug?", etc.\)
 
 It requires a lot less effort than coding, but is just as useful, if not more.
 
 We're particularly interested in your insight if:
 
-* You use an older version of Windows \(7+\) or macOS \(10.x\)
 * You use Linux \(any distribution!\)
 * Your computer is particularly old, or particularly new
 * You like puzzle games \(bug hunting is the ultimate puzzle game\)
 
-People contributing insight are a great factor in making the app better for everyone, and regularly get a shout-out in our [changelogs](http://github.com/itchio/itch/releases) \(displayed for in-app on update\).
+People contributing insight are a great factor in making the app better for everyone, and regularly get a shout-out in our [changelogs](https://github.com/itchio/itch/releases) \(displayed for in-app on update\).
 
 To get your own development copy of the app and running, follow the [Getting started](getting-started.md) page.
 

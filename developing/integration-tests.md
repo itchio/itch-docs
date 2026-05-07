@@ -1,35 +1,41 @@
 # Integration tests
 
-Whereas unit tests are small, fast, and test code directly \(trying not to hit slow things like the filesystem, the network, etc.\), **integration tests** are the opposite.
+Integration tests exercise user flows like login, navigation, and game install against a running build of the app. They use a homegrown Go runner that drives the app via ChromeDriver \(WebDriver\).
 
-They make sure that all of the code, together, makes meaningful interactions happen.
+## Requirements
 
-> Speaking of: if you haven't read the [Unit tests](unit-tests.md) section already, go do that first.
+* **Go** to compile the test runner
+* **A desktop environment**. On Linux CI, `xvfb` is used.
+* **An itch.io API key** for the test account that integration tests authenticate as
 
-The app is tested as a whole using a homegrown golang runner that speaks webdriver to the app.
+The test runner downloads a specific ChromeDriver version that must match the Electron version used by the app. If you bump Electron in `package.json`, also update `integration-tests/versions.go`.
 
-### Running integration tests
-
-It looks deceptively simple:
+## Running integration tests
 
 ```bash
+# API key for the test account
+export ITCH_TEST_ACCOUNT_API_KEY="your-api-key"
+
+# Run against a packaged build
 npm run integration-tests
+
+# Run against the dev version (faster, no packaging step)
+node release/test.js --test-dev
 ```
 
-But it'll error out pretty soon if you don't have the right environment variables set.
+To start fresh, clear the cached ChromeDriver and test artifacts:
 
-If you're an itch.io employee, poke Amos about it to get set up. If you're not, well consider this page "light reading" - open-source contributors are expected to run \(and write!\) unit tests, not integration tests.
+```bash
+rm -rf integration-tests/.chromedriver integration-tests/tmp integration-tests/screenshots
+```
 
-We'll take care of that part!
+If you're an itch.io employee, ask the team about getting an API key for the test account. Open-source contributors aren't expected to run the integration suite locally; CI will run them on your PR.
 
-### Writing an integration test
+## Writing an integration test
 
-Scenarios live in `integration-tests`, along with some support code that makes it all tick. They're also explicitly listed in `integration-tests/main.go`.
+Scenarios live in `integration-tests/` alongside the runner support code. They're explicitly listed in `integration-tests/main.go`.
 
-These resources can be useful:
+References:
 
-* The [webdriver API docs](http://webdriver.io/api.html)
-* Existing tests!
-
-
-
+* The [WebDriver API docs](https://webdriver.io/docs/api)
+* Existing tests in the `integration-tests/` directory
