@@ -1,4 +1,3 @@
-
 # macOS sandboxing
 
 The itch.io app uses macOS's built-in `sandbox-exec` facility to sandbox games. Each time a game launches, the app dynamically generates a sandbox policy written in Apple's Sandbox Profile Language (SBPL) and stores it at `{install_folder}/.itch/isolate-app.sb`.
@@ -21,22 +20,14 @@ For **app bundles** (`.app` directories), the app creates a temporary shim bundl
 
 For **standalone executables**, `sandbox-exec` is invoked directly.
 
-## Policy modes
-
-The sandbox supports two policy modes:
-
-- **Balanced** (default) — A hardened profile that limits device access to `/dev/null`, `/dev/random`, and `/dev/urandom` only.
-- **Legacy** — A broader profile for compatibility with older games. Allows full `/dev` access and wider read access to `/private`.
-
-The policy mode can be configured in the app's preferences. If a game fails to launch under the balanced profile, try switching to legacy mode before reporting an issue.
-
 ## What the sandbox allows
 
 ### Filesystem write access
 
-- `~/Library` subpaths: Application Support, Preferences, Logs, Caches, KeyBindings, Saved Application State
+- `~/Library` subpaths: Application Support, Preferences, Logs, Caches, KeyBindings, Saved Application State, and RenPy
 - The game's own install folder (full read-write)
 - `/var/folders` and `/private/var/folders` (macOS temp storage)
+- `/dev/null`, `/dev/random`, and `/dev/urandom`
 
 ### Filesystem read access
 
@@ -58,7 +49,7 @@ Even though `~/Library/Application Support` is writable, the following subpaths 
 
 ### Network
 
-Network access (`network-bind` and `network-outbound`) is allowed by default. It can be disabled with the **Disable network access in sandbox** preference.
+Network access (`network-bind` and `network-outbound`) is allowed.
 
 ### IPC and system access
 
@@ -73,12 +64,10 @@ The following are allowed for compatibility with game frameworks like SDL2 and E
 
 ## Settings
 
-The sandbox can be configured from the itch.io app's preferences:
+The sandbox can be configured from the itch.io app:
 
-- **Enable itch.io sandbox** — Master toggle to enable or disable sandboxing
-- **Disable network access in sandbox** — Prevents all network access from sandboxed games
-- **Policy mode** — Choose between **Balanced** (default) or **Legacy** for broader compatibility
-- **Allowed environment variable names** — A comma or whitespace-separated list of extra host environment variable names to pass into the sandbox
+- **Enable itch.io sandbox** — Master toggle in the app's preferences
+- **Sandbox** — Per-game override under **Manage → Launch settings**
 
 Games can detect that they are running inside the sandbox by checking for the `ITCHIO_SANDBOX=1` environment variable.
 
@@ -86,10 +75,10 @@ Games can detect that they are running inside the sandbox by checking for the `I
 
 If a game is broken by the sandbox:
 
-1. **Check Console.app.** Open the built-in Console.app and look for `sandboxd` messages to see which permissions are being denied. Shutting down other applications can help reduce noise in the logs.
+1. **Check Console.app.** Open the built-in Console.app and look for sandbox denial messages. Shutting down other applications can help reduce noise in the logs.
 
-2. **Try legacy mode.** If the game fails under the default balanced policy, switch the policy mode to legacy in the app's preferences and try again.
+2. **Inspect the policy.** Open `{install_folder}/.itch/isolate-app.sb` to see the exact SBPL policy being applied to the game.
 
-3. **Inspect the policy.** Open `{install_folder}/.itch/isolate-app.sb` to see the exact SBPL policy being applied to the game.
+3. **Try disabling the sandbox for that game.** Open **Manage → Launch settings** and disable the sandbox to confirm whether it is causing the problem.
 
 4. **Report the issue.** If you can't resolve the problem, open an issue on our [issue tracker](https://github.com/itchio/itch/issues) with the Console.app output and the contents of the `.sb` file.
