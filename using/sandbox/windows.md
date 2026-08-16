@@ -21,8 +21,8 @@ to see what the game is trying to access that it does not have permission to.
 
 You may need to filter by executable name for the logs to be readable.
 
-You can disable the sandbox for a specific game from **Manage → Launch
-settings**. If you run into an issue that you need help resolving, feel free to
+You can disable the sandbox for a specific game from **Manage →
+[Launch settings](../launch-settings.md)**. If you run into an issue that you need help resolving, feel free to
 open an issue on our [Issue Tracker](https://github.com/itchio/itch/issues).
 
 ## Frequently Asked Questions

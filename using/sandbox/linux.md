@@ -71,7 +71,7 @@ The sandbox can be configured from the itch.io app's preferences:
 - **Disable network access in sandbox** — When enabled, prevents all network access from sandboxed games. Bubblewrap achieves this by unsharing the network namespace; Firejail uses `--net=none`.
 - **Allowed environment variable names** — A comma or whitespace-separated list of host environment variable names to pass into the sandbox (e.g. `LUA_CPATH LUA_PATH`). A base set of variables (display, audio, locale, and itch.io launch variables) is always passed through.
 
-These settings can also be overridden for a specific game under **Manage → Launch settings**.
+These settings can also be overridden for a specific game under **Manage → [Launch settings](../launch-settings.md)**.
 
 Games can detect that they are running inside the sandbox by checking for the `ITCHIO_SANDBOX=1` environment variable.
 

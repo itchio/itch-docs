@@ -67,7 +67,7 @@ The following are allowed for compatibility with game frameworks like SDL2 and E
 The sandbox can be configured from the itch.io app:
 
 - **Enable itch.io sandbox** — Master toggle in the app's preferences
-- **Sandbox** — Per-game override under **Manage → Launch settings**
+- **Sandbox** — Per-game override under **Manage → [Launch settings](../launch-settings.md)**
 
 Games can detect that they are running inside the sandbox by checking for the `ITCHIO_SANDBOX=1` environment variable.
 

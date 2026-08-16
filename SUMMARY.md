@@ -18,6 +18,8 @@
     * [Install locations](using/install-locations.md)
       * [Scanning for games](using/scan-install-locations.md)
     * [Collections](using/collections.md)
+    * [Bundles](using/bundles.md)
+    * [Launch settings](using/launch-settings.md)
 * [Game developer guide](integrating/README.md)
   * [Quick start](integrating/quickstart.md)
     * [Windows builds](integrating/platforms/windows.md)

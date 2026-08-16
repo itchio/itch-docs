@@ -8,11 +8,17 @@ Once on a game's page, use the **Install** button to download it. If you don't o
 
 ![](/assets/game-tab.png)
 
-The app also lets you browse your own collections, and any of your own games you might have uploaded to itch.io.
+The app also lets you browse your own [collections](collections.md) and [bundles](bundles.md), and any of your own games you might have uploaded to itch.io.
 
 ![](/assets/collections.png)
 
-The search bar will search all itch.io games and creators when online, along with all games installed or in your collections, even when offline.
+The search bar suggests items from your own library: games you own or have installed, your collections, and your bundles. It works even when you're offline. To search the rest of itch.io, use the **Search itch.io for...** entry at the bottom of the results, which opens the website's search.
+
+## Installing games for other platforms
+
+The install dialog only lists downloads that are marked as compatible with your platform. Choosing **Show all downloads** reveals the rest, and picking one turns the install button into **Install anyway**, along with a warning that the game may fail to launch. If a game has no compatible downloads at all, they're shown right away.
+
+If [Wine](https://www.winehq.org/) is installed and available in your `PATH`, the app can launch Windows builds through it. You can also run a game through a wrapper of your choice using [launch settings](launch-settings.md).
 
 ## When a game doesn't work
 
