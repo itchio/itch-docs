@@ -2,6 +2,9 @@
 
 This book is a living documentation for [the itch.io app](https://itch.io/app).
 
+To see what changed in each version of the app, check the
+[changelog](https://github.com/itchio/itch/releases).
+
 Its intended audience includes:
 
 * People using the app to install, manage and launch games and applications
