@@ -179,7 +179,9 @@ XHR requests are normally limited to the host that served the javascript: in the
 
 Adding `sandbox = true` to an action opts into [the itch.io sandbox](../using/sandbox.md).
 
-This means that, no matter what the user's settings are, the game will always be launched within the sandbox.
+This means the game is launched within the sandbox even when the user has sandboxing turned off by default.
+
+The one exception is a user explicitly turning the sandbox off for your game, in the app's per-game launch settings. That is their escape hatch for a game that cannot run sandboxed on their system, and it overrides the opt-in.
 
 Game developers are encouraged to opt into the sandbox as early as they can afford to, to have plenty of time to adapt to it. In the future, the sandbox might become mandatory \(for app users\).
 

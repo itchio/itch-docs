@@ -38,6 +38,7 @@
       * [DirectX](integrating/prereqs/dx.md)
     * [Validating builds and manifests](integrating/manifest/validating-your-manifest.md)
   * [API integration](integrating/api/README.md)
+  * [Protocol URLs and automation](integrating/protocol-urls.md)
   * [Compatibility policy](integrating/compatibility-policy.md)
   * [Troubleshooting](integrating/troubleshooting-guide.md)
 * [Contributor guide](developing/README.md)
