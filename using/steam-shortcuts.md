@@ -48,8 +48,18 @@ launch is there.
 
 Direct shortcuts pin the executable path at save time. When a game update
 moves its executable, the dialog marks the shortcut **Will update**; save
-again to repair it. The mode is only offered for games with a native
-executable for your platform.
+again to repair it. The mode is offered for games with a native
+executable for your platform, and on Linux also for Windows games.
+
+### Windows games on Linux
+
+On Linux, if you create a direct shortcut for a Windows game it is
+automatically configured to run through Steam's Proton compatibility layer.
+When you save, the app points the shortcut at the game's `.exe` and sets its
+Steam compatibility tool to **proton_experimental**.
+
+> To use a different Proton version for a game, right-click the shortcut in
+Steam, open **Properties → Compatibility**, and pick the tool there.
 
 ## Caveats
 
