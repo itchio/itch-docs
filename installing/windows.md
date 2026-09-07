@@ -19,7 +19,7 @@ _Open this dialog by right-clicking the installer, and choosing 'Properties'._
 
 ### Antivirus software
 
-We often release new version of the itch.io app or the components it depends on.
+We often release new versions of the itch.io app or the components it depends on.
 
 You might encounter screens like these if you have a third-party antivirus installed:
 
@@ -33,7 +33,7 @@ We're working with Antivirus vendors to suppress these, but in the meantime, if 
 
 > "broth" contains components required for the itch app to run properly.
 >
-> Don't add the entire `%APPDATA%\itch` folder as it would prevent your Antivirus from scanning the games you're install.
+> Don't add the entire `%APPDATA%\itch` folder as it would prevent your Antivirus from scanning the games you install.
 
 ## Updating
 
